@@ -5,6 +5,11 @@ import BasicModal from "../../components/moleculs/modal/BasicModal";
 import {useAlert} from "../../hooks/useAlert";
 import {ALERT_DATA,ALERT_ID} from "../../constants/alertData";
 import BottomSheet from "../../components/moleculs/bottomsheet/BottomSheet";
+import CommonSwiper from "../../components/moleculs/swiper/CommonSwiper";
+import SwiperItem from "../../components/moleculs/swiper/layout/SwiperItem";
+
+import mainBanner01 from '../../assets/images/main/main-banner01.jpg';
+import mainBanner02 from '../../assets/images/main/main-banner02.jpg';
 
 const GuideComponentContainer = () => {
 
@@ -25,11 +30,50 @@ const GuideComponentContainer = () => {
     const openSheet = (name: string) => setActiveSheet(name);
     const closeAllSheets = () => setActiveSheet(null);
 
+    // Swiper Data
+    const sampleSwiperData = [
+        { id: 1, src:mainBanner01, color: 'red', text: '할인 이벤트' },
+        { id: 2, src:mainBanner02, color: 'blue', text: '신상품 출시' },
+        { id: 3, src:mainBanner02, color: 'blue', text: '신상품 출시' }
+    ];
+
+    const sampleItems = sampleSwiperData.map((data) => (
+        <SwiperItem
+            key={data.id}
+            text={data.text}
+            src={data.src}
+            // 필요한 경우 onClick 추가
+        />
+    ));
+
     return (
         <>
             <S.GuideSubTitle>Swiper Guide</S.GuideSubTitle>
             <div>
-                스와이퍼
+                <CommonSwiper
+                    items={sampleItems}
+                    height={580}
+                    pagination={true}
+                    navigation={true}
+                    autoplay={false}
+                />
+            </div>
+            <div>
+                <CommonSwiper
+                    items={sampleItems}
+                    height={100}
+                    pagination={true}
+                    navigation={true}
+                    slidesPerView={2.5}
+                />
+            </div>
+            <div>
+                <CommonSwiper
+                    items={sampleItems}
+                    height={100}
+                    navigation={true}
+                    autoplay={false}
+                />
             </div>
 
             <S.GuideSubTitle>Component Guide</S.GuideSubTitle>
