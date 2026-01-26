@@ -1,5 +1,5 @@
 
-import { ColorItem, FontStyleItem , FontSizeWeightItem } from '@/types/guide';
+import { ColorItem, FontStyleItem , FontSizeWeightItem } from '../../../types/guide';
 
 export const fontStyle: FontStyleItem[] = [
     {

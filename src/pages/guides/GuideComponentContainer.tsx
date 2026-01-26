@@ -52,7 +52,7 @@ const GuideComponentContainer = () => {
             <div>
                 <CommonSwiper
                     items={sampleItems}
-                    height={580}
+                    height={400}
                     pagination={true}
                     navigation={true}
                     autoplay={false}
@@ -70,7 +70,6 @@ const GuideComponentContainer = () => {
             <div>
                 <CommonSwiper
                     items={sampleItems}
-                    height={100}
                     navigation={true}
                     autoplay={false}
                 />

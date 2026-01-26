@@ -1,6 +1,6 @@
 import React from 'react';
 import S from "./Guide.style";
-import { ColorItem } from "@/types/guide";
+import { ColorItem } from "../../types/guide";
 
 interface GuideColorBarProps {
     data: ColorItem;

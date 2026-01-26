@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-const S = {};
-S.MainSticky = styled.div`
+const S = {
+MainSticky : styled.div`
     &.sticky {
         position:sticky;
         width:100%;
@@ -10,4 +10,5 @@ S.MainSticky = styled.div`
         padding:10px 0;
     }
 `
+};
 export default S;

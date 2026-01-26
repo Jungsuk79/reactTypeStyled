@@ -1,13 +1,17 @@
-import React, {useState} from 'react';
-import {Outlet,useLocation} from "react-router-dom";
-import S from './style'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import S from './BasicLayout.style'
+import MobileHeader from "../../components/moleculs/mobileheader/MobileHeader";
 
 const BasicLayout = () => {
 
 
     return (
-        <S.LayoutWrap >
-            11
+        <S.LayoutWrap>
+            <S.LayoutContent>
+                <Outlet />
+            </S.LayoutContent>
+            <MobileHeader />
         </S.LayoutWrap>
     );
 };
