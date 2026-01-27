@@ -18,17 +18,16 @@ export const S = {
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
-        padding: 20px;
     `,
 
     GuideTitle: styled.h3`
         ${h3Bold}
-        color: ${({ theme }) => theme.PALETTE.error};
+        color:${({ theme }) => theme.PALETTE.error};
     `,
 
     GuideSubTitle: styled.h4`
         ${pageTitle}
-        padding-bottom: 5px;
+        padding-bottom:5px;
         border-bottom: 1px solid ${({ theme }) => theme.PALETTE.gray["300"]};
         margin-top: 15px;
         margin-bottom: 10px;
@@ -38,7 +37,7 @@ export const S = {
     /* 박스 및 플렉스 요소 */
     GuideFlexBox: styled.div`
         ${flexRow}
-        flex-wrap: wrap;
+        flex-wrap:wrap;
         gap: 10px;
     `,
 
@@ -58,18 +57,18 @@ export const S = {
     /* 폰트 및 컬러 박스 공통 */
     GuideFontBox: styled.div`
         ${flexRow}
-        align-items: center;
+        align-items:center;
     `,
 
     GuideColorBox: styled.div`
         ${flexRow}
-        align-items: center;
+        align-items:center;
     `,
 
     /* 컬러 바 상세 스타일 */
     GuideColorBarBox: styled.div`
         ${flexRow}
-        align-items: center;
+        align-items:center;
         gap: 20px;
         flex-wrap: wrap;
     `,

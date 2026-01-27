@@ -5,10 +5,11 @@ const S = {
 MainBannerWrap : styled.div`
     display:flex;
     align-items: center;
-    font-size:20px;
+    font-size:${({theme})=>theme.FONT_SIZE.h6};
     color:#fff;
     background-color: #333;
-    height:50px;
+    padding-top: env(safe-area-inset-top); /* 노치 아래로 내용물을 밀어냄 */
+    height: calc(50px + env(safe-area-inset-top)); /* 기존 높이에 노치만큼 더함 */
     justify-content: center;
 `
 

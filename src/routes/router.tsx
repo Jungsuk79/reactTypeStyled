@@ -2,6 +2,7 @@ import {createBrowserRouter} from "react-router-dom";
 import GuideContainer from "../pages/guides/GuideContainer";
 import BasicLayout from "../pages/layout/BasicLayout";
 import MainContainer from "../pages/main/MainContainer";
+import BrandContainer from "../pages/brand/BrandContainer";
 
 const router = createBrowserRouter([
     {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <MainContainer /> // "/"일 때 보여줄 페이지
+            },
+            {
+                path: "/brand",
+                element: <BrandContainer /> // "/"일 때 보여줄 페이지
             }
         ]
     },

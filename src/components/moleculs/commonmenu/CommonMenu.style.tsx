@@ -1,10 +1,20 @@
 import styled from 'styled-components';
 
 const S = {
-HeaderWrap : styled.div`
-    
+
+NavWrap : styled.div<{$isHidden: boolean}>`
+    /* 애니메이션 설정 */
+    transition: transform 0.3s ease-in-out;
+    /* 내릴 때(true)는 아래로 100% 밀어 숨김, 올릴 때(false)는 0 */
+    transform: ${({ $isHidden }) => ($isHidden ? 'translateY(100%)' : 'translateY(0)')};
+    z-index: 100;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
 `,
-NavWrap : styled.ul`
+
+NavList : styled.ul`
     width:100%;
     display:flex;
     align-items: center;
@@ -23,7 +33,8 @@ NavWrap : styled.ul`
         position:relative;
         gap:5px;
         & a {
-            display:inline-block;
+            display:flex;
+            flex-direction: column;
             color:#fff;
             text-align: center;
             font-size: ${({ theme }) => theme.FONT_SIZE.h9};

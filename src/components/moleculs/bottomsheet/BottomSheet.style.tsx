@@ -32,7 +32,6 @@ SheetContainer : styled.div<BottomSheetStyleProps>`
     flex-direction: column;
     transition: transform 0.3s ease-out;
     z-index: 1000;
-    padding-bottom:20px;
 `,
 
 SheetHeader : styled.div`
@@ -80,15 +79,17 @@ CloseButton : styled.button`
 SheetContent : styled.div`
     flex: 0 1 auto;
     padding:1px 0;
-    margin:0 18px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    & div {
+        padding:0 18px;
+    }
 `,
 
 SheetBottom : styled.div`
     display: flex;
     justify-content: space-between;
-    padding:15px 20px 0;
+    padding:15px 20px 20px;
     gap:10px;
     & button {
         flex: 1;
