@@ -46,9 +46,9 @@ export interface Theme {
 const theme: Theme = {
   PALETTE: {
     primary: {
-      main: '#03a63c',
-      light: '#e6f6e8',
-      dark: '#00630e'
+      main: '#ff510c',
+      light: '#fadbce',
+      dark: '#da3e00'
     },
     secondary: {
       main: '#f27830',
@@ -60,9 +60,9 @@ const theme: Theme = {
     black: '#000000',
     gray: {
       100: '#111', 200: '#222', 300: '#333', 600: '#666', 900: '#999',
-      101: '#f5f5f5', 201: '#d9d9d9', 301: '#cccccc', 302: '#c0c0c0',
+      101: '#d1d1d1', 201: '#9d9d9d', 301: '#cccccc', 302: '#c0c0c0',
     },
-    error: '#eb6144',
+    error: '#ff1212',
     background: {
       white: '#eee',
       gray: '#f1ebf5',
@@ -70,8 +70,8 @@ const theme: Theme = {
     }
   },
   FONT_SIZE: {
-    h1: '48px', h2: '36px', h3: '28px', h4: '24px', h5: '20px',
-    h6: '16px', h7: '14px', h8: '12px', h9: '10px'
+    h1: '60px', h2: '36px', h3: '28px', h4: '24px', h5: '20px',
+    h6: '16px', h7: '13px', h8: '12px', h9: '10px'
   },
   FONT_LINE: {
     h1: '68px', h2: '52px', h3: '42px', h4: '36px', h5: '30px',

@@ -26,14 +26,14 @@ export const S = {
             // 반지름(radius) 매핑 테이블
             const radiusMap = {
                 square: {
-                    sm: '2px',
-                    md: '4px',
-                    lg: '4px',
+                    sm: '0px', // 버튼 사이즈별 radius 설정가능 현재 전부 0으로 각진 네모 버튼
+                    md: '0px',
+                    lg: '0px',
                 },
                 round: {
-                    sm: '5px',   // 작은 버튼은 조금만 둥글게
-                    md: '15px',  // 중간은 적당히
-                    lg: '20px',  // 큰 버튼은 확실하게 둥글게
+                    sm: '9999px', // 버튼 사이즈별 radius 설정가능 현재 전부 9999로 완전 둥글림...
+                    md: '9999px',
+                    lg: '9999px',
                 },
             };
 
@@ -50,30 +50,33 @@ export const S = {
                 case 'sm':
                     return css`
                         font-size: ${theme.FONT_SIZE.h8}; // 12px
-                        padding: 5px 15px;
+                        padding: 0 15px;
+                        height:30px;
                     `;
                 case 'lg':
                     return css`
                         font-size: ${theme.FONT_SIZE.h5}; // 20px
-                        padding: 12px 35px;
+                        padding: 0 40px;
+                        height:65px;
                     `;
                 case 'md':
                 default:
                     return css`
-                        font-size: ${theme.FONT_SIZE.h7}; // 14px
-                        padding: 10px 20px;
+                        font-size: ${theme.FONT_SIZE.h7}; // 13px
+                        padding: 0 25px;
+                        height:48px;
                     `;
             }
         }}
         
         ${({$variant, theme}) => !$variant && css`
-            background-color: ${theme.PALETTE.gray[300]};
-            border-color: ${theme.PALETTE.gray[300]};
+            background-color: ${theme.PALETTE.black};
+            border-color: ${theme.PALETTE.black};
             color: ${theme.PALETTE.white};
 
             &:hover {
-                background-color: ${theme.PALETTE.black}; // 호버 시 더 진하게
-                border-color: ${theme.PALETTE.black};
+                background-color: ${theme.PALETTE.gray[300]}; // 호버 시 더 진하게
+                border-color: ${theme.PALETTE.gray[300]};
             }
         `}
             /* line */

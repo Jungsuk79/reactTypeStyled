@@ -28,15 +28,18 @@ const GuideForm = () => {
                 <S.GuideBoxTitle>Input</S.GuideBoxTitle>
                 <BasicInput placeholder={"값을 입력해주세요"}/>
                 <BasicInput type={"password"} placeholder={"비밀번호를 입력해주세요"}/><br/>
-                <BasicInput placeholder={"값을 입력해주세요"} labelTxt={"좌측 레이블"}/>
-                <BasicInput placeholder={"값을 입력해주세요"} direction={"reverse"} labelTxt={"우측 레이블"}/><br/>
                 <BasicInput placeholder={"값을 입력해주세요"} fontSize={"20px"}/>
                 <BasicInput placeholder={"값을 입력해주세요"} padding={"20px"}/>
                 <BasicInput placeholder={"값을 입력해주세요"} disabled={true}/>
-                <BasicInput placeholder={"값을 입력해주세요"} success={true}/>
+                {/*<BasicInput placeholder={"값을 입력해주세요"} success={true}/>*/}
                 <BasicInput placeholder={"값을 입력해주세요"} error={true}/>
-                <BasicInput placeholder={"값을 입력해주세요"} success={true} successTxt={"성공입니다"}/>
+                {/*<BasicInput placeholder={"값을 입력해주세요"} success={true} successTxt={"성공입니다"}/>*/}
                 <BasicInput placeholder={"값을 입력해주세요"} error={true} errorTxt={"실패입니다"}/>
+
+                <BasicInput fullSize={true} reset={true} placeholder={"아이디"}/>
+                <BasicInput fullSize={true} reset={true} placeholder={"비밀번호"}/>
+                <BasicInput fullSize={true} placeholder={"값을 입력해주세요"} labelTxt={"레이블"}/><br/>
+                <BasicInput placeholder={"값을 입력해주세요"} labelTxt={"좌측 레이블"}/>
             </S.GuideSpace>
             <S.GuideSpace>
                 <S.GuideBoxTitle>Checkbox</S.GuideBoxTitle>

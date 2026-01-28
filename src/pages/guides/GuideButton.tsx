@@ -10,8 +10,8 @@ const GuideButton = () => {
                 <BasicButton $variant={"line"} $size={"sm"}>버튼</BasicButton>
                 <BasicButton $variant={"primary"} $size={"sm"}>버튼</BasicButton>
                 <BasicButton $variant={"primaryLine"} $size={"sm"}>버튼</BasicButton>
-                <BasicButton $variant={"secondary"} $size={"sm"}>버튼</BasicButton>
-                <BasicButton $variant={"secondaryLine"} $size={"sm"}>버튼</BasicButton>
+                {/*<BasicButton $variant={"secondary"} $size={"sm"}>버튼</BasicButton>*/}
+                {/*<BasicButton $variant={"secondaryLine"} $size={"sm"}>버튼</BasicButton>*/}
                 <BasicButton $variant={"error"} $size={"sm"}>버튼</BasicButton>
             </S.GuideSpace>
             <S.GuideSpace>
@@ -19,8 +19,8 @@ const GuideButton = () => {
                 <BasicButton $variant={"line"}>버튼</BasicButton>
                 <BasicButton $variant={"primary"}>버튼</BasicButton>
                 <BasicButton $variant={"primaryLine"}>버튼</BasicButton>
-                <BasicButton $variant={"secondary"}>버튼</BasicButton>
-                <BasicButton $variant={"secondaryLine"}>버튼</BasicButton>
+                {/*<BasicButton $variant={"secondary"}>버튼</BasicButton>*/}
+                {/*<BasicButton $variant={"secondaryLine"}>버튼</BasicButton>*/}
                 <BasicButton $variant={"error"}>버튼</BasicButton>
             </S.GuideSpace>
             <S.GuideSpace>
@@ -28,8 +28,8 @@ const GuideButton = () => {
                 <BasicButton $variant={"line"} $size={"lg"}>버튼</BasicButton>
                 <BasicButton $variant={"primary"} $size={"lg"}>버튼</BasicButton>
                 <BasicButton $variant={"primaryLine"} $size={"lg"}>버튼</BasicButton>
-                <BasicButton $variant={"secondary"} $size={"lg"}>버튼</BasicButton>
-                <BasicButton $variant={"secondaryLine"} $size={"lg"}>버튼</BasicButton>
+                {/*<BasicButton $variant={"secondary"} $size={"lg"}>버튼</BasicButton>*/}
+                {/*<BasicButton $variant={"secondaryLine"} $size={"lg"}>버튼</BasicButton>*/}
                 <BasicButton $variant={"error"} $size={"lg"}>버튼</BasicButton>
             </S.GuideSpace>
             <S.GuideSpace>

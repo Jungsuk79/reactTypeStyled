@@ -37,7 +37,7 @@ export const fontStyle: FontStyleItem[] = [
 export const fontSizeWeight: FontSizeWeightItem[] = [
     {
         title:"Heading1",
-        size:"48px",
+        size:"60px",
         fontWeight:"700",
         weightTxt:'black'
     },
@@ -73,7 +73,7 @@ export const fontSizeWeight: FontSizeWeightItem[] = [
     },
     {
         title:"Text",
-        size:"14px",
+        size:"13px",
         fontWeight:"400",
         weightTxt:'regular'
     },
@@ -95,77 +95,77 @@ export const pointColor: ColorItem[] = [
     {
         title:"Basic",
         name:"black",
-        color:"#333333",
-        rgbColor:'51,51,51'
+        color:"#000000",
+        rgbColor:'0,0,0'
     },
     {
         title:"Primary",
         name:"green",
-        color:"#03a63c",
-        rgbColor:'3,166,60'
+        color:"#ff510c",
+        rgbColor:'242,80,80'
     },
-    {
-        title:"Secondary",
-        name:"orange",
-        color:"#f27830",
-        rgbColor:'242,120,48'
-    },
+    // {
+    //     title:"Secondary",
+    //     name:"orange",
+    //     color:"#f27830",
+    //     rgbColor:'242,120,48'
+    // },
     {
         title:"Warning",
         name:"red",
-        color:"#f25050",
+        color:"#ff1212",
         rgbColor:'242,80,80'
     }
 ]
 
 export const colorBar: ColorItem[] = [
-    {
-        title:"Primary Light",
-        name:"light green",
-        color:"#e6f6e8",
-        rgbColor:'230,246,232',
-        type:'brand'
-    },
+    // {
+    //     title:"Primary Light",
+    //     name:"light green",
+    //     color:"#e6f6e8",
+    //     rgbColor:'230,246,232',
+    //     type:'brand'
+    // },
     {
         title:"Primary",
         name:"green",
-        color:"#03a63c",
-        rgbColor:'3,166,60',
+        color:"#ff510c",
+        rgbColor:'242,80,80',
         type:'brand'
     },
-    {
-        title:"Primary Dark",
-        name:"dark green",
-        color:"#00630e",
-        rgbColor:'0,99,14',
-        type:'brand'
-    },
-    {
-        title:"Secondary Light",
-        name:"light orange",
-        color:"#fce3d4",
-        rgbColor:'252,227,212',
-        type:'sub'
-    },
-    {
-        title:"Secondary",
-        name:"orange",
-        color:"#f27830",
-        rgbColor:'242,120,48',
-        type:'sub'
-    },
-    {
-        title:"Secondary Dark",
-        name:"dark orange",
-        color:"#eb6413",
-        rgbColor:'242,120,48',
-        type:'sub'
-    },
+    // {
+    //     title:"Primary Dark",
+    //     name:"dark green",
+    //     color:"#00630e",
+    //     rgbColor:'0,99,14',
+    //     type:'brand'
+    // },
+    // {
+    //     title:"Secondary Light",
+    //     name:"light orange",
+    //     color:"#fce3d4",
+    //     rgbColor:'252,227,212',
+    //     type:'sub'
+    // },
+    // {
+    //     title:"Secondary",
+    //     name:"orange",
+    //     color:"#f27830",
+    //     rgbColor:'242,120,48',
+    //     type:'sub'
+    // },
+    // {
+    //     title:"Secondary Dark",
+    //     name:"dark orange",
+    //     color:"#eb6413",
+    //     rgbColor:'242,120,48',
+    //     type:'sub'
+    // },
     {
         title:"Warning",
         name:"red",
-        color:"#f25050",
-        rgbColor:'3,166,60',
+        color:"#ff1212",
+        rgbColor:'255,50,50',
         type:'sub'
     },
     {
@@ -213,14 +213,14 @@ export const colorBar: ColorItem[] = [
     {
         title:"Greyscale 6",
         name:"grayScale 6",
-        color:"#c0c0c0",
-        rgbColor:'242,120,48',
+        color:"#1d1d1d",
+        rgbColor:'187,187,187',
         type:'gray'
     },
     {
         title:"Greyscale 7",
         name:"grayScale 7",
-        color:"#cccccc",
+        color:"#bbbbbb",
         rgbColor:'242,120,48',
         type:'gray'
     },

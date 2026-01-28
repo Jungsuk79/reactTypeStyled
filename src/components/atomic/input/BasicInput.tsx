@@ -7,7 +7,6 @@ export interface BasicInputProps {
     type?: string;
     labelTxt?: string;
     radius?: string;
-    direction?: 'row' | 'column' | 'reverse'; // 구체적인 타입 지정
     fontSize?: string;
     padding?: string;
     disabled?: boolean;
@@ -16,6 +15,8 @@ export interface BasicInputProps {
     error?: boolean;
     successTxt?: string;
     errorTxt?: string;
+    fullSize?: boolean;
+    reset?: boolean;
 }
 
 const BasicInput = ({
@@ -23,33 +24,40 @@ const BasicInput = ({
     id,
     type='text',
     labelTxt,
-    radius = '4px', // 기본값 설정
-    direction = 'column',
+    radius = '0px', // 기본값 설정
     fontSize = '14px',
-    padding = '10px',
+    padding = '16px 0',
     disabled = false,
     descpition,
+    fullSize=false,
     success = false,
     error = false,
     successTxt,
-    errorTxt
+    errorTxt,
+    reset
 }: BasicInputProps) => {
     return (
-        <S.BasicInputWrap>
+        <S.BasicInputWrap $fullSize={fullSize}>
             <S.BasicInputArea
                 $success={success}
                 $successTxt={successTxt}
                 $error={error}
                 $errorTxt={errorTxt}
                 $radius={radius}
-                $direction={direction}
                 $padding={padding}
                 $fontSize={fontSize}
+                $reset={reset}
             >
                 {labelTxt && (
                     <label htmlFor={id}>{labelTxt}</label>
                 )}
                 <input type={type} id={id} placeholder={placeholder} disabled={disabled} />
+                {reset &&(
+                    <span className="reset">
+                        <button type="button"></button>
+                        <button type="button"></button>
+                    </span>
+                )}
             </S.BasicInputArea>
             {descpition && (
                 <div className="under-txt">{descpition}</div>

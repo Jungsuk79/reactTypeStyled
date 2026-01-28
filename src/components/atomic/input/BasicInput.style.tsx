@@ -6,24 +6,26 @@ interface StyledProps {
     $success?: boolean;
     $successTxt?: string; // 추가
     $errorTxt?: string;   // 추가
-    $direction?: string;
     $fontSize?: string | number;
     $padding?: string;
     $radius?: string | number;
+    $fullSize?: boolean;
+    $reset?: boolean;
 }
 
 // 상태에 따른 색상을 반환하는 헬퍼 함수
 const getStatusColor = (props: StyledProps) => {
     if (props.$error) return '#ff4d4f';   
-    if (props.$success) return '#52c41a'; 
+    if (props.$success) return '#ff510c';
     return '#999';                        
 };
 
 // 2. S 객체 안에 바로 정의 (가장 깔끔하고 에러 없는 방식)
 export const S = {
-    BasicInputWrap: styled.div`
-        display: inline-block;
+    BasicInputWrap: styled.div<StyledProps>`
+        display: block;
         vertical-align: top;
+        width:auto;
         & .under-txt {
             font-size: 12px;
             color: #999;
@@ -35,14 +37,15 @@ export const S = {
                  color: ${({ theme }) => theme.PALETTE.error};
             }
         }
+        ${({ $fullSize }) => $fullSize && `
+            display: block;
+        `}
     `,
 
     BasicInputArea: styled.div<StyledProps>`
-        display: inline-flex;
+        position: relative;
+        display: block;
         vertical-align: middle;
-        align-items: center;
-        gap: 5px;
-        flex-direction: ${({ $direction }) => $direction === 'reverse' ? 'row-reverse' : 'row'};
         
         & label {
             font-size: ${({ $fontSize }) => 
@@ -51,7 +54,8 @@ export const S = {
 
         & input {
             outline: none;
-            border: 1px solid ${(props) => getStatusColor(props)};
+            border:none;
+            border-bottom: 1px solid ${(props) => getStatusColor(props)};
             padding: ${({ $padding }) => $padding || '8px 12px'};
             font-size: ${({ $fontSize }) => 
                 $fontSize !== undefined ? (typeof $fontSize === 'number' ? `${$fontSize}px` : $fontSize) : `14px`};
@@ -62,12 +66,32 @@ export const S = {
                 border-color: ${(props) => getStatusColor(props)};
             }
             &:disabled {
-                background-color: ${({ theme }) => theme.PALETTE.gray[101]};
+                background-color: ${({ theme }) => theme.PALETTE.gray[201]};
             }
             &::placeholder {
                 color: #ccc;
                 font-size: ${({ $fontSize }) => 
                     $fontSize !== undefined ? (typeof $fontSize === 'number' ? `${$fontSize}px` : $fontSize) : `14px`};
+            }
+        }
+
+        & .reset {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+
+            button {
+                width: 20px;
+                height: 20px;
+                border: none;
+                background: #ccc; /* 테스트용 색상 */
+                border-radius: 50%;
+                cursor: pointer;
+                padding: 0;
+
+                &:hover {
+                    background: #999;
+                }
             }
         }
     `
