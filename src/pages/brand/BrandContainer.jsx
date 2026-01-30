@@ -1,5 +1,10 @@
-import { useOutletContext } from 'react-router-dom';
-import { useEffect } from 'react';
+import {Link, useOutletContext} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import S from './BrandContainer.style';
+import CommonSwiper from "../../components/moleculs/swiper/CommonSwiper";
+import sampleBanner02 from "../../assets/images/main/sample-banner02.jpg";
+import sampleBanner01 from "../../assets/images/main/sample-banner01.jpg";
+import MainSwiperItem from "../../components/moleculs/swiper/main/MainSwiperItem";
 const BrandContainer = () => {
     const { setHeaderProps } = useOutletContext();
     useEffect(() => {
@@ -10,9 +15,43 @@ const BrandContainer = () => {
         return () => setHeaderProps(null);
     }, [setHeaderProps]);
 
+    const sampleSwiperData2 = [
+        { id: 1, src:sampleBanner02 },
+        { id: 2, src:sampleBanner01 },
+        { id: 3, src:sampleBanner02}
+    ];
+    const sampleItems2 = sampleSwiperData2.map((data) => (
+        <MainSwiperItem
+            key={data.id}
+            src={data.src}
+            // 필요한 경우 onClick 추가
+        />
+    ));
+
+    const pageName = "브랜드"
+
     return (
         <>
-            <div>
+            <S.BrandContent>
+                <S.PageTitle>
+                    {pageName}
+                    <span>(140)</span>
+                </S.PageTitle>
+
+                <S.BrandSwiperWrap>
+                    <CommonSwiper
+                        items={sampleItems2}
+                        slidesPerView={2.5}
+                        pagination={false}
+                        navigation={false}
+                        autoplay={false}
+                    />
+                </S.BrandSwiperWrap>
+                <S.BrandSwiperEx>
+                    <div>좋아하는 브랜드를 찜하고</div>
+                    <div><span>나만의 목록</span>을 만들어 보세요!</div>
+                </S.BrandSwiperEx>
+
                 브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />
                 브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />
                 브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />
@@ -21,7 +60,7 @@ const BrandContainer = () => {
                 브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />
                 브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />
                 브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />브랜드 페이지<br />
-            </div>
+            </S.BrandContent>
         </>
     );
 };

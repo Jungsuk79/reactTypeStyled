@@ -42,6 +42,9 @@ const S = {
     ItemText: styled.h4<SwiperItemStyleProps>`
         font-size:14px;
         font-weight:400;
+    `,
+    MenuTitleWrap : styled.div`
+        
     `
 };
 export default S;

@@ -10,6 +10,8 @@ import SwiperItem from "../../components/moleculs/swiper/layout/SwiperItem";
 
 import mainBanner01 from '../../assets/images/main/main-banner01.jpg';
 import mainBanner02 from '../../assets/images/main/main-banner02.jpg';
+import BasicTab from "../../components/moleculs/tab/BasicTab";
+import MenuSwiperItem from "../../components/moleculs/swiper/menu/MenuSwiperItem";
 
 const GuideComponentContainer = () => {
 
@@ -25,6 +27,11 @@ const GuideComponentContainer = () => {
         primaryText:"확인2",
         secondaryText:"닫기2"
     }
+    const sheetConfig3 = {
+        primaryText:"확인3",
+        secondaryText:"닫기3"
+    }
+    
     // BottomSheet
     const [activeSheet, setActiveSheet] = useState<string | null>(null);
     const openSheet = (name: string) => setActiveSheet(name);
@@ -46,6 +53,34 @@ const GuideComponentContainer = () => {
         />
     ));
 
+    const [activeMenuId, setActiveMenuId] = useState<number>(1);
+    const menuSwiperData = [
+        { id: 1, menuTitle: '볼빅 최저가'},
+        { id: 2, menuTitle: '베스트' },
+        { id: 3, menuTitle: '아울렛' },
+        { id: 4, menuTitle: '여성' },
+        { id: 5, menuTitle: '남성' },
+        { id: 6, menuTitle: '골프' },
+        { id: 7, menuTitle: '아웃도어' },
+        { id: 8, menuTitle: '스타일' }
+    ];
+    const menuItems = menuSwiperData.map((data) => (
+        <MenuSwiperItem
+            key={data.id}
+            menuTitle={data.menuTitle}
+            defaultOn={activeMenuId === data.id}
+            onClick={() => setActiveMenuId(data.id)}
+        />
+    ));
+
+    // tab
+    const [activeTab, setActiveTab] = useState('tab01');
+    const TABS = [
+        { id: 'tab01', label: '탭 타이틀01', content: "111" },
+        { id: 'tab02', label: '탭 타이틀02', content: "222" },
+        { id: 'tab03', label: '탭 타이틀03', content: "333" }
+    ];
+
     return (
         <>
             <S.GuideSubTitle>Swiper Guide</S.GuideSubTitle>
@@ -62,8 +97,8 @@ const GuideComponentContainer = () => {
                 <CommonSwiper
                     items={sampleItems}
                     height={100}
-                    pagination={true}
-                    navigation={true}
+                    pagination={false}
+                    navigation={false}
                     slidesPerView={2.5}
                 />
             </div>
@@ -72,6 +107,18 @@ const GuideComponentContainer = () => {
                     items={sampleItems}
                     navigation={true}
                     autoplay={false}
+                />
+            </div>
+            <div>
+                <CommonSwiper
+                    items={menuItems}
+                    slidesPerView={'auto'} // 아이템 너비에 맞춰 자동으로 (강력 추천)
+                    spaceBetween={10}      // 아이템 사이 간격
+                    freeMode={true}        // 슥슥 밀리는 느낌
+                    pagination={false}     // 메뉴에는 보통 페이지 점이 없음
+                    navigation={false}     // 화살표도 보통 없음
+                    autoplay={false}       // 메뉴가 혼자 돌아가면 안됨
+                    height="auto"          // 높이는 내용물에 맞게
                 />
             </div>
 
@@ -97,6 +144,7 @@ const GuideComponentContainer = () => {
                 <BasicButton onClick={() => openSheet("service")}>드레그 버전</BasicButton>
                 <BasicButton onClick={() => openSheet("login")}>닫기 버튼 버전</BasicButton>
                 <BasicButton onClick={() => openSheet("noButton")}>하단 버튼없는</BasicButton>
+                <BasicButton onClick={() => openSheet("todayCheck")}>오늘 하루 보지 않기</BasicButton>
             </S.ButtonBox>
             <BottomSheet
                 sheetConfig={sheetConfig}
@@ -140,6 +188,30 @@ const GuideComponentContainer = () => {
                     하단버튼 없는 닫기버전
                 </div>
             </BottomSheet>
+
+            <BottomSheet
+                sheetConfig={sheetConfig3}
+                radius={"10px 10px 0 0"}
+                isOpen={activeSheet === "todayCheck"}
+                onClose={closeAllSheets}
+                dragType={false}
+                bottomBtn={false}
+                bottomCancel={false}
+                todayCheck={true}
+            >
+                <div>
+                    오늘 하루 보지 않기
+                </div>
+            </BottomSheet>
+
+            <S.GuideBoxTitle>Tab</S.GuideBoxTitle>
+            <BasicTab
+                tabs={TABS}
+                activeTab={activeTab}
+                onChange={setActiveTab}
+                className="guide-tab-custom"
+            />
+
         </>
     );
 };

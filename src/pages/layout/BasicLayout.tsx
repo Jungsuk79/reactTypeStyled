@@ -17,7 +17,7 @@ const BasicLayout = () => {
 
     // Top버튼 영역 관련
     const isScrolled = posY > 0;
-
+    const isTopWhite = !isScrollDown && posY < 100;
 
     return (
         <S.LayoutWrap>
@@ -25,7 +25,7 @@ const BasicLayout = () => {
                 {isMain ? (
                     <>
                         <MainBanner>메인배너 : 설명</MainBanner>
-                        <S.StickHeader $isHidden={!isScrollDown && posY < 100}>
+                        <S.StickHeader $isHidden={isTopWhite}>
                             <MainHeader />
                         </S.StickHeader>
                     </>
@@ -44,7 +44,7 @@ const BasicLayout = () => {
                             {isMain && (
                              <>
                                  <button>FAQ</button>
-                                 <button>LOGIN</button>
+                                 <button>FAV</button>
                              </>
                             )}
                             <button onClick={() => scrollRef.current?.scrollTo({top: 0, behavior: 'smooth'})}>

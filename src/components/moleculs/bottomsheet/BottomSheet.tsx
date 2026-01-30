@@ -16,7 +16,8 @@ interface BottomSheetProps {
     bottomBtn?: boolean;
     children:React.ReactNode,
     onConfirm?:()=>void,
-    bottomCancel?:boolean
+    bottomCancel?:boolean,
+    todayCheck?:boolean
 }
 
 const BottomSheet = ({
@@ -28,7 +29,8 @@ const BottomSheet = ({
     bottomBtn = true,
     bottomCancel = true,
     children,
-    onConfirm
+    onConfirm,
+    todayCheck = false
 }:BottomSheetProps) => {
 
     useEffect(() => {
@@ -72,11 +74,14 @@ const BottomSheet = ({
                         onClick={(e) => e.stopPropagation()}
                     >
                         <S.SheetHeader>
-                            {dragType ?(
+                            {dragType &&(
                                 <S.HandleBarWrap
                                 >
                                     <S.HandleBar/>
                                 </S.HandleBarWrap>
+                            )}
+                            {dragType || todayCheck ?(
+                                <></>
                             ):(
                                 <S.CloseButton onClick={onClose}>&times;</S.CloseButton>
                             )}
@@ -92,6 +97,12 @@ const BottomSheet = ({
                                 )}
                                 <BasicButton onClick={onConfirm}>확인</BasicButton>
                             </S.SheetBottom>
+                        )}
+                        {todayCheck && (
+                            <S.todayCheckWrap>
+                                <button className="today-check" type="button">오늘 하루 보지 않기</button>
+                                <button type="button" onClick={onClose}>닫기</button>
+                            </S.todayCheckWrap>
                         )}
 
                     </S.SheetContainer>

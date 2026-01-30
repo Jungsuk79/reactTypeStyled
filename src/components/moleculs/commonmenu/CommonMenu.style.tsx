@@ -7,7 +7,7 @@ NavWrap : styled.div<{$isHidden: boolean}>`
     transition: transform 0.3s ease-in-out;
     /* 내릴 때(true)는 아래로 100% 밀어 숨김, 올릴 때(false)는 0 */
     transform: ${({ $isHidden }) => ($isHidden ? 'translateY(100%)' : 'translateY(0)')};
-    z-index: 100;
+    z-index: 200;
     position:fixed;
     bottom:0;
     left:0;
@@ -22,7 +22,6 @@ NavList : styled.ul`
     height:70px;
     padding:0 18px;
     justify-content: space-between;
-    border-top:1px solid #fff;
     background-color:#000;
     & li {
         width: 55px;

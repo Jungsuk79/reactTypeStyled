@@ -112,6 +112,8 @@ const GlobalStyle = createGlobalStyle`
       cursor: pointer;
       margin:0;
       padding:0;
+      border:none;
+      background-color:transparent;
   }
   input {margin:0;}
   

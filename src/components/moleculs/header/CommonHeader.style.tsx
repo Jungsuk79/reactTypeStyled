@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import icSearch from '../../../assets/images/common/icSearch.svg'
+import icCart from '../../../assets/images/common/icCart.svg'
 
 const S = {
     CommonHeaderWrap: styled.div`
@@ -18,8 +20,10 @@ const S = {
         top:50%;
         left:10px;
         transform: translateY(-50%);
-        border:1px solid #333;
-        padding:2px 5px;
+        width:44px;
+        height:44px;
+        padding:10px;
+        cursor: pointer;
     `,
     RightArea : styled.div`
         position:absolute;
@@ -28,13 +32,22 @@ const S = {
         transform: translateY(-50%);
     `,
     SearchBtn : styled.button`
-        border:1px solid #333;
-        padding:2px 10px;
+        border:none;
+        width:30px;
+        height:30px;
+        display:inline-block;
+        background:url(${icSearch}) no-repeat center;
+        text-indent: -9999px;
+        margin-right:5px;
     `,
     CartWrap : styled.button`
-        background-color:#fff;
         border:none;
-        padding:10px;
+        width:30px;
+        height:30px;
+        display:inline-block;
+        background:url(${icCart}) no-repeat center;
+        font-size:12px;
+        padding:10px 0;
     `
 };
 

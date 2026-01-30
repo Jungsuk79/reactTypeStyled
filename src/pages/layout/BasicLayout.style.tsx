@@ -34,6 +34,7 @@ FolatingWrap : styled.div<BasicLayoutProps>`
     position:fixed;
     bottom:0;
     right:10px;
+    z-index:200;
     transition: transform 0.3s ease-in-out;
     transform: ${({ $isHidden }) => $isHidden ? 'translateY(60px)' : 'translateY(0)'};
 `,
@@ -41,10 +42,14 @@ FolatingContent: styled.div`
     position: absolute;
     right:0;
     bottom:90px;
+    opacity:0.9;
     & button {
         display: block;
         width:40px;
         height:40px;
+        border:1px solid #d2d2d2;
+        border-radius:50%;
+        background-color:#ffffff;
         & + button {
             margin-top:10px;
         }

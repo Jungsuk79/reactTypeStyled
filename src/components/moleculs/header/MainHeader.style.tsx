@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import icSearch from '../../../assets/images/common/icSearch.svg'
+import icCart from '../../../assets/images/common/icCart.svg'
 
 const S = {
     MainHeaderWrap: styled.div`
@@ -6,11 +8,12 @@ const S = {
         display:flex;
         align-items: center;
         justify-content: center;
-        height:50px;
+        height:56px;
         padding-top: env(safe-area-inset-top);
     `,
-    PageTitle: styled.h2`
-        font-size:18px;
+    PageTitle: styled.h2<{ $isHidden?: boolean }>`
+        height:25px;
+        filter:brightness(0) invert(1);
     `,
     BackButton : styled.button`
         position:absolute;
@@ -26,14 +29,25 @@ const S = {
         right:10px;
         transform: translateY(-50%);
     `,
-    SearchBtn : styled.button`
-        border:1px solid #333;
-        padding:2px 10px;
-    `,
-    CartWrap : styled.button`
-        background-color:#fff;
+    SearchBtn : styled.button<{ $isHidden?: boolean }>`
         border:none;
-        padding:10px;
+        width:30px;
+        height:30px;
+        display:inline-block;
+        background:url(${icSearch}) no-repeat center;
+        text-indent: -9999px;
+        margin-right:5px;
+        filter:brightness(0) invert(1);
+    `,
+    CartWrap : styled.button<{ $isHidden?: boolean }>`
+        border:none;
+        width:30px;
+        height:30px;
+        display:inline-block;
+        background:url(${icCart}) no-repeat center;
+        font-size:12px;
+        padding:10px 0;
+        filter:brightness(0) invert(1);
     `
 };
 
