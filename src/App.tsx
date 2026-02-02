@@ -4,6 +4,8 @@ import theme from './styles/theme';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes/router';
 import GlobalStyle from './styles/global';
+import GlobalModal from "./components/moleculs/modal/GlobalModal";
+import GlobalBottomSheet from "./components/moleculs/bottomsheet/GlobalBottomSheet";
 
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <RouterProvider router={router}/>
+        <GlobalModal />
+        <GlobalBottomSheet />
       </ThemeProvider>
     </>
   );

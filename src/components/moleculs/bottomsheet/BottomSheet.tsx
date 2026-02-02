@@ -12,6 +12,7 @@ interface BottomSheetProps {
     dragType?:boolean,
     isOpen:boolean,
     onClose:()=>void,
+    onTodayClose?:()=>void,
     radius?:string,
     bottomBtn?: boolean;
     children:React.ReactNode,
@@ -25,6 +26,7 @@ const BottomSheet = ({
     dragType=true,
     isOpen,
     onClose,
+    onTodayClose,
     radius,
     bottomBtn = true,
     bottomCancel = true,
@@ -93,14 +95,14 @@ const BottomSheet = ({
                         {bottomBtn &&(
                             <S.SheetBottom>
                                 {bottomCancel &&(
-                                    <BasicButton $variant={"line"} onClick={onClose}>취소</BasicButton>
+                                    <BasicButton $variant={"line"} onClick={onClose}>{sheetConfig?sheetConfig.primaryText:"확인"}</BasicButton>
                                 )}
-                                <BasicButton onClick={onConfirm}>확인</BasicButton>
+                                <BasicButton onClick={onConfirm}>{sheetConfig?sheetConfig.secondaryText:"취소"}</BasicButton>
                             </S.SheetBottom>
                         )}
                         {todayCheck && (
                             <S.todayCheckWrap>
-                                <button className="today-check" type="button">오늘 하루 보지 않기</button>
+                                <button className="today-check" type="button" onClick={onTodayClose}>오늘 하루 보지 않기</button>
                                 <button type="button" onClick={onClose}>닫기</button>
                             </S.todayCheckWrap>
                         )}

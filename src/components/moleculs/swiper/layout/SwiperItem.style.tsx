@@ -34,14 +34,17 @@ const S = {
     ItemTextBox: styled.div<SwiperItemStyleProps>`
         position: absolute;
         left:20px;
-        bottom:20px;
+        bottom:40px;
     `,
     ItemTitle: styled.h3<SwiperItemStyleProps>`
         font-size:20px;
+        color:#fff;
     `,
-    ItemText: styled.h4<SwiperItemStyleProps>`
+    ItemText: styled.p<SwiperItemStyleProps>`
         font-size:14px;
         font-weight:400;
+        margin-top:10px;
+        color:#fff;
     `,
     MenuTitleWrap : styled.div`
         

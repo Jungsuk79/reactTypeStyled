@@ -1,6 +1,6 @@
 import React from 'react';
 import S from "./Guide.style";
-import {pointColor,colorBar} from "./mocks/guide.mock";
+import {pointColor,colorBar} from "../../assets/mocks/guide.mock";
 import GuideColorBar from "./GuideColorBar";
 
 const GuideColor = () => {

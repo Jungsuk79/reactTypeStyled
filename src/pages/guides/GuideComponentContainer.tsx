@@ -1,92 +1,70 @@
 import React, {useState} from 'react';
 import S from './Guide.style';
 import BasicButton from "../../components/atomic/button/BasicButton";
-import BasicModal from "../../components/moleculs/modal/BasicModal";
-import {useAlert} from "../../hooks/useAlert";
-import {ALERT_DATA,ALERT_ID} from "../../constants/alertData";
 import BottomSheet from "../../components/moleculs/bottomsheet/BottomSheet";
 import CommonSwiper from "../../components/moleculs/swiper/CommonSwiper";
 import SwiperItem from "../../components/moleculs/swiper/layout/SwiperItem";
-
-import mainBanner01 from '../../assets/images/main/main-banner01.jpg';
-import mainBanner02 from '../../assets/images/main/main-banner02.jpg';
 import BasicTab from "../../components/moleculs/tab/BasicTab";
 import MenuSwiperItem from "../../components/moleculs/swiper/menu/MenuSwiperItem";
+import {sampleSwiperData,menuSwiperData,TABS} from "../../assets/mocks/guide.mock"
+import {useAlertStore} from "../../store/useAlertStore";
 
 const GuideComponentContainer = () => {
 
-    const { activeAlert, openAlert, closeAlert } = useAlert();
-
-    const sheetConfig = {
-        title:"서비스 안내",
-        primaryText:"확인",
-        secondaryText:"닫기"
-    }
-    const sheetConfig2 = {
-        title:"서비스 안내2",
-        primaryText:"확인2",
-        secondaryText:"닫기2"
-    }
-    const sheetConfig3 = {
-        primaryText:"확인3",
-        secondaryText:"닫기3"
-    }
-    
     // BottomSheet
     const [activeSheet, setActiveSheet] = useState<string | null>(null);
     const openSheet = (name: string) => setActiveSheet(name);
     const closeAllSheets = () => setActiveSheet(null);
+    const sheetConfig = {
+        title:"서비스 안내",
+        primaryText:"버튼텍스트1",
+        secondaryText:"버튼텍스트2"
+    }
+    const sheetConfig2 = {
+        title:"서비스 안내2",
+        secondaryText:"닫기"
+    }
 
-    // Swiper Data
-    const sampleSwiperData = [
-        { id: 1, src:mainBanner01, color: 'red', text: '할인 이벤트' },
-        { id: 2, src:mainBanner02, color: 'blue', text: '신상품 출시' },
-        { id: 3, src:mainBanner02, color: 'blue', text: '신상품 출시' }
-    ];
-
-    const sampleItems = sampleSwiperData.map((data) => (
-        <SwiperItem
-            key={data.id}
-            text={data.text}
-            src={data.src}
-            // 필요한 경우 onClick 추가
-        />
-    ));
-
+    // Menu 관련
     const [activeMenuId, setActiveMenuId] = useState<number>(1);
-    const menuSwiperData = [
-        { id: 1, menuTitle: '볼빅 최저가'},
-        { id: 2, menuTitle: '베스트' },
-        { id: 3, menuTitle: '아울렛' },
-        { id: 4, menuTitle: '여성' },
-        { id: 5, menuTitle: '남성' },
-        { id: 6, menuTitle: '골프' },
-        { id: 7, menuTitle: '아웃도어' },
-        { id: 8, menuTitle: '스타일' }
-    ];
-    const menuItems = menuSwiperData.map((data) => (
-        <MenuSwiperItem
-            key={data.id}
-            menuTitle={data.menuTitle}
-            defaultOn={activeMenuId === data.id}
-            onClick={() => setActiveMenuId(data.id)}
-        />
-    ));
 
-    // tab
+    // Tab 초기값에 따라 화면에 보여지는 탭타이틀 바뀜
     const [activeTab, setActiveTab] = useState('tab01');
-    const TABS = [
-        { id: 'tab01', label: '탭 타이틀01', content: "111" },
-        { id: 'tab02', label: '탭 타이틀02', content: "222" },
-        { id: 'tab03', label: '탭 타이틀03', content: "333" }
-    ];
+
+
+    // Alert
+    const openAlert = useAlertStore((state) => state.openAlert);
+    const alert1 = () => {
+        openAlert({
+            title: "테스트 타이틀1",
+            content: <p>테스트 컨텐츠1</p>,
+            onConfirm: () => console.log("확인1 버튼 클릭")
+        });
+    };
+    const alert2 = () => {
+        openAlert({
+            title: "테스트 타이틀2",
+            content: <p>테스트 컨텐츠2</p>,
+            onConfirm: () => console.log("확인2 버튼 클릭")
+        });
+    };
 
     return (
         <>
             <S.GuideSubTitle>Swiper Guide</S.GuideSubTitle>
             <div>
                 <CommonSwiper
-                    items={sampleItems}
+                    items={
+                        sampleSwiperData.map((data) => (
+                            <SwiperItem
+                                key={data.id}
+                                text={data.text}
+                                subText={data.subText}
+                                src={data.src}
+                                // 필요한 경우 onClick 추가
+                            />
+                        ))
+                    }
                     height={400}
                     pagination={true}
                     navigation={true}
@@ -95,28 +73,49 @@ const GuideComponentContainer = () => {
             </div>
             <div>
                 <CommonSwiper
-                    items={sampleItems}
+                    items={
+                        sampleSwiperData.map((data) => (
+                            <SwiperItem
+                                key={data.id}
+                                src={data.src}
+                                // 필요한 경우 onClick 추가
+                            />
+                        ))
+                    }
                     height={100}
-                    pagination={false}
-                    navigation={false}
                     slidesPerView={2.5}
                 />
             </div>
             <div>
                 <CommonSwiper
-                    items={sampleItems}
-                    navigation={true}
+                    items={
+                        sampleSwiperData.map((data) => (
+                            <SwiperItem
+                                key={data.id}
+                                text={data.text}
+                                src={data.src}
+                                // 필요한 경우 onClick 추가
+                            />
+                        ))
+                    }
                     autoplay={false}
                 />
             </div>
             <div>
                 <CommonSwiper
-                    items={menuItems}
+                    items={
+                        menuSwiperData.map((data) => (
+                            <MenuSwiperItem
+                                key={data.id}
+                                menuTitle={data.menuTitle}
+                                defaultOn={activeMenuId === data.id}
+                                onClick={() => setActiveMenuId(data.id)}
+                            />
+                        ))
+                    }
                     slidesPerView={'auto'} // 아이템 너비에 맞춰 자동으로 (강력 추천)
                     spaceBetween={10}      // 아이템 사이 간격
-                    freeMode={true}        // 슥슥 밀리는 느낌
-                    pagination={false}     // 메뉴에는 보통 페이지 점이 없음
-                    navigation={false}     // 화살표도 보통 없음
+                    freeMode={true}   // 화살표도 보통 없음
                     autoplay={false}       // 메뉴가 혼자 돌아가면 안됨
                     height="auto"          // 높이는 내용물에 맞게
                 />
@@ -124,21 +123,10 @@ const GuideComponentContainer = () => {
 
             <S.GuideSubTitle>Component Guide</S.GuideSubTitle>
             <S.GuideBoxTitle>Alert(align:true,false true일때 우측정렬 기본은 중앙정렬)</S.GuideBoxTitle>
-            <S.GuideBox>
-                <S.ButtonBox>
-                    <BasicButton onClick={() => openAlert(ALERT_ID.SAVE_SUCCESS)}>알럿1</BasicButton>
-                    <BasicButton onClick={() => openAlert(ALERT_ID.ERROR)}>알럿2</BasicButton>
-                </S.ButtonBox>
-                <BasicModal
-                    isOpen={activeAlert !== null}
-                    onClose={closeAlert}
-                    title={activeAlert ? ALERT_DATA[activeAlert]?.title : ""}
-                    alignRight={false}
-                >
-                    {activeAlert && ALERT_DATA[activeAlert]?.content}
-                </BasicModal>
-            </S.GuideBox>
-
+            <S.ButtonBox>
+                <BasicButton onClick={alert1}>알럿1 띄우기</BasicButton>
+                <BasicButton onClick={alert2}>알럿2 띄우기</BasicButton>
+            </S.ButtonBox>
             <S.GuideBoxTitle>BottomSheet(bottomBtn:버튼 삭제시 false, bottomCancel: 취소버튼 없앨려면 false)</S.GuideBoxTitle>
             <S.ButtonBox>
                 <BasicButton onClick={() => openSheet("service")}>드레그 버전</BasicButton>
@@ -176,7 +164,6 @@ const GuideComponentContainer = () => {
                 </div>
             </BottomSheet>
             <BottomSheet
-                sheetConfig={sheetConfig2}
                 radius={"10px 10px 0 0"}
                 isOpen={activeSheet === "noButton"}
                 onClose={closeAllSheets}
@@ -190,7 +177,6 @@ const GuideComponentContainer = () => {
             </BottomSheet>
 
             <BottomSheet
-                sheetConfig={sheetConfig3}
                 radius={"10px 10px 0 0"}
                 isOpen={activeSheet === "todayCheck"}
                 onClose={closeAllSheets}

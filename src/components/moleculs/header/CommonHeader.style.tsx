@@ -8,9 +8,9 @@ const S = {
         display:flex;
         align-items: center;
         justify-content: center;
-        height:50px;
+        height:56px;
+        padding:6px;
         background-color:#fff;
-        padding-top: env(safe-area-inset-top);
     `,
     PageTitle: styled.h2`
         font-size:18px;
@@ -33,21 +33,22 @@ const S = {
     `,
     SearchBtn : styled.button`
         border:none;
-        width:30px;
-        height:30px;
+        width:44px;
+        height:44px;
         display:inline-block;
         background:url(${icSearch}) no-repeat center;
+        background-size: 28px auto;
         text-indent: -9999px;
-        margin-right:5px;
     `,
     CartWrap : styled.button`
         border:none;
-        width:30px;
-        height:30px;
+        width:44px;
+        height:44px;
         display:inline-block;
         background:url(${icCart}) no-repeat center;
+        background-size: 28px auto;
         font-size:12px;
-        padding:10px 0;
+        padding:17px 0 13px;
     `
 };
 

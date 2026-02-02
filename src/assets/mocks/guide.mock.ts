@@ -1,5 +1,6 @@
-
-import { ColorItem, FontStyleItem , FontSizeWeightItem } from '../../../types/guide';
+import { ColorItem, FontStyleItem , FontSizeWeightItem } from '../../types/guide';
+import mainBanner01 from "../images/main/main-banner01.jpg";
+import mainBanner02 from "../images/main/main-banner02.jpg";
 
 export const fontStyle: FontStyleItem[] = [
     {
@@ -33,7 +34,6 @@ export const fontStyle: FontStyleItem[] = [
         fontWeight:"900"
     }
 ]
-
 export const fontSizeWeight: FontSizeWeightItem[] = [
     {
         title:"Heading1",
@@ -90,7 +90,6 @@ export const fontSizeWeight: FontSizeWeightItem[] = [
         weightTxt:'regular'
     }
 ]
-
 export const pointColor: ColorItem[] = [
     {
         title:"Basic",
@@ -117,7 +116,6 @@ export const pointColor: ColorItem[] = [
         rgbColor:'242,80,80'
     }
 ]
-
 export const colorBar: ColorItem[] = [
     // {
     //     title:"Primary Light",
@@ -246,3 +244,24 @@ export const colorBar: ColorItem[] = [
         type:'gray'
     }
 ]
+
+export const sampleSwiperData = [
+    { id: 1, src:mainBanner01, text: '할인 이벤트' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' },
+    { id: 2, src:mainBanner02, text: '신상품 출시' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' },
+    { id: 3, src:mainBanner02, text: '신상품 출시' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' }
+];
+export const menuSwiperData = [
+    { id: 1, menuTitle: '볼빅 최저가'},
+    { id: 2, menuTitle: '베스트' },
+    { id: 3, menuTitle: '아울렛' },
+    { id: 4, menuTitle: '여성' },
+    { id: 5, menuTitle: '남성' },
+    { id: 6, menuTitle: '골프' },
+    { id: 7, menuTitle: '아웃도어' },
+    { id: 8, menuTitle: '스타일' }
+];
+export const TABS = [
+    { id: 'tab01', label: '탭 타이틀01', content: "111" },
+    { id: 'tab02', label: '탭 타이틀02', content: "222" },
+    { id: 'tab03', label: '탭 타이틀03', content: "333" }
+];

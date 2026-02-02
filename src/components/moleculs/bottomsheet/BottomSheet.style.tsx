@@ -24,6 +24,7 @@ const S = {
     SheetContainer: styled.div<BottomSheetStyleProps>`
         width: 100%;
         max-width: 500px;
+        background-color: #fff;
         border-radius: ${({$radius}) => $radius || '15px 15px 0 0'};
         animation: ${slideUp} 0.3s ease-out;
         box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
@@ -80,7 +81,6 @@ const S = {
 
     SheetContent: styled.div`
         flex: 0 1 auto;
-        padding: 1px 0;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     `,

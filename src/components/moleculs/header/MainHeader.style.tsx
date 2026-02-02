@@ -31,24 +31,26 @@ const S = {
     `,
     SearchBtn : styled.button<{ $isHidden?: boolean }>`
         border:none;
-        width:30px;
-        height:30px;
+        width:44px;
+        height:44px;
         display:inline-block;
         background:url(${icSearch}) no-repeat center;
+        background-size: 28px auto;
         text-indent: -9999px;
-        margin-right:5px;
         filter:brightness(0) invert(1);
     `,
     CartWrap : styled.button<{ $isHidden?: boolean }>`
         border:none;
-        width:30px;
-        height:30px;
+        width:44px;
+        height:44px;
         display:inline-block;
         background:url(${icCart}) no-repeat center;
+        background-size: 28px auto;
         font-size:12px;
-        padding:10px 0;
+        padding:16px 0;
         filter:brightness(0) invert(1);
     `
+
 };
 
 export default S;

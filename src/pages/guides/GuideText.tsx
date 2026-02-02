@@ -1,6 +1,6 @@
 import React from 'react';
 import S from './Guide.style';
-import { fontStyle, fontSizeWeight } from "./mocks/guide.mock";
+import { fontStyle, fontSizeWeight } from "../../assets/mocks/guide.mock";
 
 const GuideText = () => {
 
