@@ -5,8 +5,11 @@ import CommonSwiper from "../../components/moleculs/swiper/CommonSwiper";
 import sampleBanner02 from "../../assets/images/main/sample-banner02.jpg";
 import sampleBanner01 from "../../assets/images/main/sample-banner01.jpg";
 import SwiperItem from "../../components/moleculs/swiper/layout/SwiperItem";
+import { LayoutContextType } from '../../types/layout';
+
 const BrandContainer = () => {
-    const { setHeaderProps } = useOutletContext();
+    
+    const { setHeaderProps } = useOutletContext<LayoutContextType>();
     useEffect(() => {
         // 페이지가 마운트될 때 헤더 정보 설정
         setHeaderProps({ showBack: true });

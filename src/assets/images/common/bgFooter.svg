@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1" height="67" viewBox="0 0 1 67">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_6263" data-name="사각형 6263" width="1" height="67" transform="translate(392 -318)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="pattern_cutting" transform="translate(-392 318)" clip-path="url(#clip-path)">
+    <g id="pattern" transform="translate(752 -24) rotate(180)">
+      <rect id="사각형_31" data-name="사각형 31" width="360" height="10" transform="translate(0 228)"/>
+      <rect id="사각형_34" data-name="사각형 34" width="360" height="8" transform="translate(0 243)"/>
+      <rect id="사각형_35" data-name="사각형 35" width="360" height="6" transform="translate(0 257)"/>
+      <rect id="사각형_36" data-name="사각형 36" width="360" height="3" transform="translate(0 270)"/>
+      <rect id="사각형_38" data-name="사각형 38" width="360" height="2" transform="translate(0 281)"/>
+      <rect id="사각형_39" data-name="사각형 39" width="360" height="1" transform="translate(0 293)"/>
+    </g>
+  </g>
+</svg>

@@ -7,6 +7,7 @@ import FaqContainer from "../pages/customer/faq/FaqContainer";
 import CustomerContainer from "../pages/customer/CustomerContainer";
 import NoticeContainer from "../pages/customer/notice/NoticeContainer";
 import NoticeDetail from "../pages/customer/notice/NoticeDetail";
+import MypageContainer from "src/pages/mypage/MypageContainer";
 
 const router = createBrowserRouter([
     {
@@ -15,11 +16,11 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <MainContainer /> // "/"일 때 보여줄 페이지
+                element: <MainContainer />
             },
             {
                 path: "brand",
-                element: <BrandContainer /> // "/"일 때 보여줄 페이지
+                element: <BrandContainer />
             },
             {
                 path:"/customer",
@@ -27,21 +28,25 @@ const router = createBrowserRouter([
                 children: [
                     {
                         index: true,
-                        element: <Navigate to="faq" replace /> // "/"일 때 보여줄 페이지
+                        element: <Navigate to="faq" replace />
                     },
                     {
                         path: "faq",
-                        element: <FaqContainer /> // "/"일 때 보여줄 페이지
+                        element: <FaqContainer />
                     },
                     {
                         path: "notice",
-                        element: <NoticeContainer /> // "/"일 때 보여줄 페이지
+                        element: <NoticeContainer />
                     }
                 ]
             },
             {
                 path: "/customer/notice/:id",
-                element: <NoticeDetail /> // "/"일 때 보여줄 페이지
+                element: <NoticeDetail />
+            },
+            {
+                path: "/mypage",
+                element: <MypageContainer />
             }
 
         ]

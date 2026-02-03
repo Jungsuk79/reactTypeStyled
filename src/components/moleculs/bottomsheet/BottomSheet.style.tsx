@@ -23,7 +23,6 @@ const S = {
 
     SheetContainer: styled.div<BottomSheetStyleProps>`
         width: 100%;
-        max-width: 500px;
         background-color: #fff;
         border-radius: ${({$radius}) => $radius || '15px 15px 0 0'};
         animation: ${slideUp} 0.3s ease-out;

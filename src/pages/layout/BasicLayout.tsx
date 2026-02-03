@@ -7,6 +7,7 @@ import CommonHeader from "../../components/moleculs/header/CommonHeader";
 import MainBanner from "../main/components/MainBanner";
 import {useScrollDown} from '../../hooks/useScrollDown'
 import MainHeader from "../../components/moleculs/header/MainHeader";
+import Footer from 'src/components/moleculs/footer/Footer';
 
 const BasicLayout = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -59,6 +60,7 @@ const BasicLayout = () => {
                         </S.FolatingContent>
                     </S.FolatingWrap>
                 )}
+                <Footer />
             </S.LayoutContent>
             <CommonMenu isHidden={isScrollDown} />
         </S.LayoutWrap>

@@ -54,19 +54,19 @@ const CommonMenu = ({isHidden}:CommonMenuProps) => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={"/guide"}>
+                    <NavLink to={"/mypage"}>
                         <S.MenuIcon>
                             <IconMypage />
                         </S.MenuIcon>
-                        가이드
+                        MYPAGE
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={"/"}>
+                    <NavLink to={"/guide"}>
                         <S.MenuIcon>
                             <IconJjim />
                         </S.MenuIcon>
-                        찜
+                        가이드
                     </NavLink>
                 </li>
             </S.NavList>

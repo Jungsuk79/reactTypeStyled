@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {useOutletContext,useParams} from "react-router-dom";
+import {Link, useOutletContext,useParams} from "react-router-dom";
 import {LayoutContextType} from "../../../types/layout";
 import S from './NoticeDetail.style'
+import BasicButton from 'src/components/atomic/button/BasicButton';
 interface NoticeData {
     id: number;
     title: string;
@@ -39,6 +40,11 @@ const NoticeDetail = () => {
             <S.NoticeDetailContent>
                 {detail?.content}
             </S.NoticeDetailContent>
+            <S.BottomArea>
+                <Link to="/customer/notice">
+                   <BasicButton $width={"100%"} $variant={"line"} $shape={"round"}>목록으로</BasicButton>
+                </Link>
+            </S.BottomArea>
         </S.NoticeDetailWrap>
     );
 };

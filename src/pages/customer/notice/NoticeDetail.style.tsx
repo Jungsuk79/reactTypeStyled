@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const S = {
     NoticeDetailWrap: styled.div`
-        padding:10px 10px 20px;
+        padding:10px 10px 0;
     `,
     NoticeDetailTitle: styled.div`
         border-top:1px solid #ddd;
@@ -21,7 +21,10 @@ const S = {
         font-size:13px;
         color:#333;
         border-bottom:1px solid #ddd;
-        min-height:calc(100vh - 400px);
+        min-height:calc(100vh - 300px);
+    `,
+    BottomArea: styled.div`
+        padding:20px;
     `
 }
 export default S;
