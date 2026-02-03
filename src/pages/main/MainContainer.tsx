@@ -57,25 +57,24 @@ const MainContainer = () => {
                     height={580}
                 />
                 <S.MainSwiperBottom></S.MainSwiperBottom>
-                <S.MainSticky>
-                    <CommonSwiper
-                        items={
-                            menuSwiperData.map((data) => (
-                                <MenuSwiperItem
-                                    key={data.id}
-                                    menuTitle={data.menuTitle}
-                                    defaultOn={activeMenuId === data.id}
-                                    onClick={() => setActiveMenuId(data.id)}
-                                />
-                            ))
-                        }
-                        slidesPerView={'auto'}
-                        spaceBetween={10}
-                        freeMode={true}
-                        autoplay={false}
-                        height="auto"
-                    />
-                </S.MainSticky>
+                <CommonSwiper
+                    items={
+                        menuSwiperData.map((data) => (
+                            <MenuSwiperItem
+                                key={data.id}
+                                menuTitle={data.menuTitle}
+                                defaultOn={activeMenuId === data.id}
+                                onClick={() => setActiveMenuId(data.id)}
+                            />
+                        ))
+                    }
+                    slidesPerView={'auto'}
+                    spaceBetween={10}
+                    freeMode={true}
+                    autoplay={false}
+                    height="auto"
+                    isSticky={true}
+                />
                 <div>
                     메인 영역<br />메인 영역<br />메인 영역<br />메인 영역<br />메인 영역<br />메인 영역<br />
                     메인 영역<br />메인 영역<br />메인 영역<br />메인 영역<br />메인 영역<br />메인 영역<br />

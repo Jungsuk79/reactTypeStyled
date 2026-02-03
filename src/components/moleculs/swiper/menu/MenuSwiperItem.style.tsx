@@ -21,6 +21,7 @@ const S = {
         position:relative;
         font-size:16px;
         padding:19px 10px;
+        cursor: pointer;
 
         ${props =>
                 props.$defaultOn &&

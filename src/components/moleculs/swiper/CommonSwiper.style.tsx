@@ -2,10 +2,21 @@ import styled from 'styled-components';
 
 export interface SwiperStyleProps {
     height?: string;
+    $isSticky?: boolean;
 }
 
 const S = {
 
+SwiperWrap : styled.div<SwiperStyleProps>`
+    ${({$isSticky})=>$isSticky&&`
+        position:sticky;
+        top:0;
+        left:0;
+        width:100%;
+        z-index:100;
+        background-color:#fff;
+    `}
+`,
 Container : styled.div<SwiperStyleProps>`
     position: relative;
     width: 100%;

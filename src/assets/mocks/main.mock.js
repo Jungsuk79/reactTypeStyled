@@ -1,4 +1,3 @@
-import React from "react";
 import sampleBanner02 from "../../assets/images/main/sample-banner02.jpg";
 import sampleBanner01 from "../../assets/images/main/sample-banner01.jpg";
 import mainBanner01 from "../../assets/images/main/main-banner01.jpg";

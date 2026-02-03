@@ -1,4 +1,4 @@
-import React, {useState,useRef} from 'react';
+import React, {useState,useRef,useEffect} from 'react';
 import { Outlet , useLocation } from 'react-router-dom';
 import S from './BasicLayout.style'
 import CommonMenu from "../../components/moleculs/commonmenu/CommonMenu";
@@ -18,6 +18,12 @@ const BasicLayout = () => {
     // Top버튼 영역 관련
     const isScrolled = posY > 0;
     const isTopWhite = !isScrollDown && posY < 100;
+
+    // 페이지 최초진입시 상단으로 이동
+    const { pathname } = useLocation();
+    useEffect(() => {
+        scrollRef.current?.scrollTo(0, 0);
+    }, [pathname]);
 
     return (
         <S.LayoutWrap>

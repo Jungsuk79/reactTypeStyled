@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import S from './Guide.style';
 import BasicButton from "../../components/atomic/button/BasicButton";
 import BottomSheet from "../../components/moleculs/bottomsheet/BottomSheet";
@@ -31,14 +31,13 @@ const GuideComponentContainer = () => {
     // Tab 초기값에 따라 화면에 보여지는 탭타이틀 바뀜
     const [activeTab, setActiveTab] = useState('tab01');
 
-
     // Alert
     const openAlert = useAlertStore((state) => state.openAlert);
     const alert1 = () => {
         openAlert({
-            title: "테스트 타이틀1",
-            content: <p>테스트 컨텐츠1</p>,
-            onConfirm: () => console.log("확인1 버튼 클릭")
+            title: "테스트 타이틀",
+            content: <p>테스트 컨텐츠</p>,
+            onConfirm: () => console.log("확인 버튼 클릭")
         });
     };
     const alert2 = () => {
@@ -48,6 +47,20 @@ const GuideComponentContainer = () => {
             onConfirm: () => console.log("확인2 버튼 클릭")
         });
     };
+    const alert3 = () => {
+        openAlert({
+            title: "테스트 타이틀3",
+            content: <p>테스트 컨텐츠3</p>,
+            onConfirm: () => console.log("확인3 버튼 클릭")
+        });
+    };
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            openSheet("service");
+            alert3();
+
+        }, 100); // 화면에 계속 떠있는것처럼 보이지 않기위해 딜레이 0.1초
+    }, []);
 
     return (
         <>

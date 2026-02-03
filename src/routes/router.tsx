@@ -1,8 +1,12 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 import GuideContainer from "../pages/guides/GuideContainer";
 import BasicLayout from "../pages/layout/BasicLayout";
 import MainContainer from "../pages/main/MainContainer";
 import BrandContainer from "../pages/brand/BrandContainer";
+import FaqContainer from "../pages/customer/faq/FaqContainer";
+import CustomerContainer from "../pages/customer/CustomerContainer";
+import NoticeContainer from "../pages/customer/notice/NoticeContainer";
+import NoticeDetail from "../pages/customer/notice/NoticeDetail";
 
 const router = createBrowserRouter([
     {
@@ -14,9 +18,32 @@ const router = createBrowserRouter([
                 element: <MainContainer /> // "/"일 때 보여줄 페이지
             },
             {
-                path: "/brand",
+                path: "brand",
                 element: <BrandContainer /> // "/"일 때 보여줄 페이지
+            },
+            {
+                path:"/customer",
+                element: <CustomerContainer />,
+                children: [
+                    {
+                        index: true,
+                        element: <Navigate to="faq" replace /> // "/"일 때 보여줄 페이지
+                    },
+                    {
+                        path: "faq",
+                        element: <FaqContainer /> // "/"일 때 보여줄 페이지
+                    },
+                    {
+                        path: "notice",
+                        element: <NoticeContainer /> // "/"일 때 보여줄 페이지
+                    }
+                ]
+            },
+            {
+                path: "/customer/notice/:id",
+                element: <NoticeDetail /> // "/"일 때 보여줄 페이지
             }
+
         ]
     },
     {

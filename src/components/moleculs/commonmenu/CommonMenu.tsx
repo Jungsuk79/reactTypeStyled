@@ -30,7 +30,7 @@ const CommonMenu = ({isHidden}:CommonMenuProps) => {
         <S.NavWrap $isHidden={isHidden}>
             <S.NavList>
                 <li>
-                    <NavLink to={"/"}>
+                    <NavLink to={"/customer/faq"}>
                         <S.MenuIcon>
                             <IconMenu />
                         </S.MenuIcon>
