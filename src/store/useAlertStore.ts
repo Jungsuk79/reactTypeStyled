@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import React from "react"; // {} 중괄호 필수 (Zustand v4 기준)
 
 interface AlertConfig {
-    title: string;
+    title?: string;
     content: React.ReactNode;
     onConfirm?: () => void;
 }

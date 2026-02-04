@@ -116,6 +116,9 @@ const GlobalStyle = createGlobalStyle`
       background-color:transparent;
   }
   input {margin:0;}
+  ol,ul,li {
+      list-style: none;
+  }
   
 `
 export default GlobalStyle;

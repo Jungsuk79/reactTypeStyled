@@ -49,7 +49,7 @@ const S = {
         background-size: 28px auto;
         font-size:12px;
         padding:17px 0 13px;
-    `
+    `,
 };
 
 export default S;

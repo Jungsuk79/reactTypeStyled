@@ -6,15 +6,12 @@ import S from './MypageContainer.style';
 
 const MypageContainer = () => {
 
-    const { setHeaderProps } = useOutletContext<LayoutContextType>();
 
     const pageName = "마이페이지"
-    
-    useEffect(() => {
-        // 페이지가 마운트될 때 헤더 정보 설정
-        setHeaderProps({ showBack: true });
 
-        // 언마운트될 때 헤더 정보 초기화
+    const { setHeaderProps } = useOutletContext<LayoutContextType>();
+    useEffect(() => {
+        setHeaderProps({ showBack: true });
         return () => setHeaderProps(null);
     }, [setHeaderProps]);
 

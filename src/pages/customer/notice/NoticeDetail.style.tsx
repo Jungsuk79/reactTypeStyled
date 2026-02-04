@@ -22,6 +22,7 @@ const S = {
         color:#333;
         border-bottom:1px solid #ddd;
         min-height:calc(100vh - 300px);
+        white-space: break-spaces;
     `,
     BottomArea: styled.div`
         padding:20px;

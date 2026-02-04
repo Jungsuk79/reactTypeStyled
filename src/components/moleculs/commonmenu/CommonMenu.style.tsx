@@ -30,8 +30,10 @@ NavList : styled.ul`
         justify-content: center;
         flex-direction: column;
         position:relative;
-        gap:5px;
-        & a {
+        & span {
+            margin-bottom:5px;
+        }
+        & a , button {
             display:flex;
             flex-direction: column;
             color:#fff;

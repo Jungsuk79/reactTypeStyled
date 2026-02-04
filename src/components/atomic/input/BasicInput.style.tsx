@@ -39,6 +39,9 @@ export const S = {
         }
         ${({ $fullSize }) => $fullSize && `
             display: block;
+            & input {
+                width:100%;
+            }
         `}
     `,
 
@@ -57,6 +60,7 @@ export const S = {
             border:none;
             border-bottom: 1px solid ${(props) => getStatusColor(props)};
             padding: ${({ $padding }) => $padding || '8px 12px'};
+            padding-right:60px;
             font-size: ${({ $fontSize }) => 
                 $fontSize !== undefined ? (typeof $fontSize === 'number' ? `${$fontSize}px` : $fontSize) : `14px`};
             border-radius: ${({ $radius }) => 
@@ -79,6 +83,10 @@ export const S = {
             display: flex;
             gap: 4px;
             align-items: center;
+            position:absolute;
+            top:50%;
+            right:5px;
+            transform: translateY(-50%);
 
             button {
                 width: 20px;

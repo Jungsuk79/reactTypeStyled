@@ -8,6 +8,8 @@ import CustomerContainer from "../pages/customer/CustomerContainer";
 import NoticeContainer from "../pages/customer/notice/NoticeContainer";
 import NoticeDetail from "../pages/customer/notice/NoticeDetail";
 import MypageContainer from "src/pages/mypage/MypageContainer";
+import Login from "../pages/login/Login";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -45,10 +47,18 @@ const router = createBrowserRouter([
                 element: <NoticeDetail />
             },
             {
-                path: "/mypage",
-                element: <MypageContainer />
+                element:<ProtectedRoute />,
+                children:[
+                    {
+                        path: "/mypage",
+                        element: <MypageContainer />
+                    }
+                ]
+            },
+            {
+                path: "/login",
+                element: <Login />
             }
-
         ]
     },
     {

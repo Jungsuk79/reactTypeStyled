@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import S from './BasicInput.style';
 
 export interface BasicInputProps {
@@ -10,13 +10,16 @@ export interface BasicInputProps {
     fontSize?: string;
     padding?: string;
     disabled?: boolean;
-    descpition?: string;
+    description?: string;
     success?: boolean;
     error?: boolean;
     successTxt?: string;
     errorTxt?: string;
     fullSize?: boolean;
     reset?: boolean;
+    showTxt?: boolean;
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const BasicInput = ({
@@ -28,14 +31,38 @@ const BasicInput = ({
     fontSize = '14px',
     padding = '16px 0',
     disabled = false,
-    descpition,
+    description,
     fullSize=false,
     success = false,
     error = false,
     successTxt,
     errorTxt,
-    reset
+    reset=true,
+    showTxt,
+    onChange,
+    value
 }: BasicInputProps) => {
+
+    const [inputType, setInputType] = useState(type);
+
+    const handleShowToggle = () => {
+        setInputType((prev) => (prev === 'password' ? 'text' : 'password'));
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (onChange) {
+            onChange(e);
+        }
+    };
+    const handleReset = () => {
+        if (onChange) {
+            const event = {
+                target: { value: "" }
+            } as React.ChangeEvent<HTMLInputElement>;
+            onChange(event);
+        }
+    };
+
     return (
         <S.BasicInputWrap $fullSize={fullSize}>
             <S.BasicInputArea
@@ -51,16 +78,24 @@ const BasicInput = ({
                 {labelTxt && (
                     <label htmlFor={id}>{labelTxt}</label>
                 )}
-                <input type={type} id={id} placeholder={placeholder} disabled={disabled} />
+                <input
+                    id={id}
+                    type={inputType}
+                    onChange={handleChange}
+                    value={value}
+                    placeholder={placeholder}
+                    disabled={disabled} />
                 {reset &&(
                     <span className="reset">
-                        <button type="button"></button>
-                        <button type="button"></button>
+                        <button type="button" onClick={handleReset}>X</button>
+                        {showTxt && type === 'password' && (
+                            <button type="button" className={inputType === 'password' ? '보기' : '숨기기'} onClick={handleShowToggle}></button>
+                        )}
                     </span>
                 )}
             </S.BasicInputArea>
-            {descpition && (
-                <div className="under-txt">{descpition}</div>
+            {description && (
+                <div className="under-txt">{description}</div>
             )}
             {successTxt  && (
                 <div className="under-txt success">{successTxt}</div>

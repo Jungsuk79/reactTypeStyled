@@ -1,6 +1,8 @@
 import React from 'react';
 import S from './CommonMenu.style'
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import {useAlertStore} from "../../../store/useAlertStore";
+import {useAuthStore} from "../../../store/useAuthStore";
 
 export interface CommonMenuProps {
     isHidden: boolean;
@@ -25,6 +27,23 @@ const CommonMenu = ({isHidden}:CommonMenuProps) => {
     const IconJjim = () => (
         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="-1 -1 28 27"><path stroke="#FCFCFC" stroke-width="1.5" d="M13.38 23.562C7.235 19.317 4.13 15.39 2.647 12.378c-1.732-3.52-.36-7.942 3.248-9.483 4.243-1.81 7.148 2.142 7.148 2.142s2.737-4.061 7.043-2.4C23.75 4.05 25.28 8.424 23.676 12c-1.37 3.06-4.311 7.102-10.296 11.562Z"></path></svg>
     )
+
+    // 페이지 이동(마이페이지)
+    const navigate = useNavigate();
+    // 로그인 안됐을때 알럿뜨도록 설정
+    const openAlert = useAlertStore((state) => state.openAlert);
+    const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+    const handleLoginCheckClick = () =>{
+        if(!isLoggedIn) {
+            openAlert({
+                title:"권한 안내",
+                content: <p>로그인 후 이용가능한 페이지입니다.<br />로그인페이지로 이동 하시겠습니까?</p>,
+                onConfirm: () => navigate("/login")
+            });
+        }else {
+            navigate("/mypage");
+        }
+    }
 
     return (
         <S.NavWrap $isHidden={isHidden}>
@@ -54,12 +73,12 @@ const CommonMenu = ({isHidden}:CommonMenuProps) => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={"/mypage"}>
+                    <button onClick={handleLoginCheckClick}>
                         <S.MenuIcon>
                             <IconMypage />
                         </S.MenuIcon>
                         MYPAGE
-                    </NavLink>
+                    </button>
                 </li>
                 <li>
                     <NavLink to={"/guide"}>

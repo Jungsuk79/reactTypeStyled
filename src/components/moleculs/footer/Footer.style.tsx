@@ -3,6 +3,7 @@ import bgfooter from '../../../assets/images/common/bgFooter.svg';
 
 const S = {
     FooterWrap: styled.div`
+        margin-top:100px;
         padding:66px 0 0;
         background:url(${bgfooter}) repeat-x center top;
         color:#fff;

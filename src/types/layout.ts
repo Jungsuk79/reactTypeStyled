@@ -1,6 +1,9 @@
 export interface HeaderProps {
     title?: string;
-    showBack: boolean;
+    showBack?: boolean;
+    isSearch?: boolean;
+    isCart?: boolean;
+    isHome?: boolean;
 }
 
 export interface LayoutContextType {

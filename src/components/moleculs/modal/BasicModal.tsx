@@ -4,7 +4,7 @@ import S from './BasicModal.style';
 interface BasicModalProps {
     isOpen: boolean;
     onClose: () => void;
-    title: string;
+    title?: string;
     children: React.ReactNode;
     alignRight?: boolean;
     onClick?: () => void;
@@ -18,8 +18,8 @@ const BasicModal = ({ onClick,isOpen, onClose, title, children,alignRight=false 
             {/* stopPropagation으로 본체 클릭 시 닫힘 방지 */}
             <S.ModalContainer onClick={(e) => e.stopPropagation()}>
                 <S.ModalHeader>
-                    {title && <h3>{title}</h3>}
                     <button onClick={onClose}>&times;</button>
+                    {title && <h3>{title}</h3>}
                 </S.ModalHeader>
                 <S.ModalContent>
                     {children}

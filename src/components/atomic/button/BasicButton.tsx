@@ -4,12 +4,21 @@ import { S, StyledButtonProps } from './BasicButton.style';
 interface ButtonProps extends StyledButtonProps {
     children: React.ReactNode;
     onClick?: () => void;
+    type?: 'button' | 'submit';
 }
 
-const BasicButton = ({ children, $variant, $width,$shape = 'square', $size = 'md', onClick }: ButtonProps) => {
+const BasicButton = ({
+    type='submit',
+    children,
+    $variant,
+    $width,
+    $shape = 'square',
+    $size = 'md',
+    onClick
+}: ButtonProps) => {
 
     return (
-        <S.Button $shape={$shape} $variant={$variant} $width={$width} $size={$size} onClick={onClick}>
+        <S.Button type={type} onClick={onClick} $shape={$shape} $variant={$variant} $width={$width} $size={$size}>
             {children}
         </S.Button>
     );

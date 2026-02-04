@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export interface ModalProps {
-    $alignRight: boolean;
+    $alignRight?: boolean;
 }
 
 const S = {
@@ -17,13 +17,16 @@ Overlay : styled.div`
 ModalContainer : styled.div`
     background: #fff;
     border-radius: 12px;
-    width: 90%; max-width: 400px;
+    width: 90%; max-width: 300px;
     padding: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 `,
 
 ModalHeader : styled.div`
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    flex-direction: row-reverse;
     margin-bottom: 10px;
     h3 { 
         margin: 0;
@@ -40,7 +43,7 @@ ModalContent : styled.div`
 `,
 
 ModalFooter : styled.div<ModalProps>`
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex; 
     gap:5px;
     justify-content: ${({ $alignRight }) => ($alignRight ? 'flex-end' : 'center')};

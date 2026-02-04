@@ -51,7 +51,7 @@ export const S = {
                     return css`
                         font-size: ${theme.FONT_SIZE.h8}; // 12px
                         padding: 0 15px;
-                        height:30px;
+                        height:35px;
                     `;
                 case 'lg':
                     return css`

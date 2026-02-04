@@ -38,8 +38,8 @@ const GuideForm = () => {
 
                 <BasicInput fullSize={true} reset={true} placeholder={"아이디"}/>
                 <BasicInput fullSize={true} reset={true} placeholder={"비밀번호"}/>
-                <BasicInput fullSize={true} placeholder={"값을 입력해주세요"} labelTxt={"레이블"}/><br/>
-                <BasicInput placeholder={"값을 입력해주세요"} labelTxt={"좌측 레이블"}/>
+                <BasicInput fullSize={true} placeholder={"값을 입력해주세요"} description={"입력을 확인해주세요"} labelTxt={"레이블"}/><br/>
+                <BasicInput placeholder={"값을 입력해주세요"} labelTxt={"좌측 레이블"} />
             </S.GuideSpace>
             <S.GuideSpace>
                 <S.GuideBoxTitle>Checkbox</S.GuideBoxTitle>

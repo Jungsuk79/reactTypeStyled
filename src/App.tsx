@@ -6,6 +6,7 @@ import router from './routes/router';
 import GlobalStyle from './styles/global';
 import GlobalModal from "./components/moleculs/modal/GlobalModal";
 import GlobalBottomSheet from "./components/moleculs/bottomsheet/GlobalBottomSheet";
+import {useAuthStore} from "./store/useAuthStore";
 
 
 function App() {
