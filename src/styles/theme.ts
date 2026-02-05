@@ -2,7 +2,7 @@
 
 interface GrayPalette {
   100: string; 200: string; 300: string; 600: string; 900: string;
-  101: string; 201: string; 301: string; 302: string;
+  101: string; 201: string; 301: string; 302: string; 909: string;
 }
 
 interface FontStructure {
@@ -60,7 +60,7 @@ const theme: Theme = {
     black: '#000000',
     gray: {
       100: '#111', 200: '#222', 300: '#333', 600: '#666', 900: '#999',
-      101: '#d1d1d1', 201: '#9d9d9d', 301: '#cccccc', 302: '#c0c0c0',
+      101: '#d1d1d1', 201: '#9d9d9d', 301: '#cccccc', 302: '#c0c0c0', 909: '#f2f2f2'
     },
     error: '#ff1212',
     background: {

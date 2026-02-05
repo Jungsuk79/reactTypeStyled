@@ -31,6 +31,7 @@ const Login = () => {
                                 placeholder={"아이디"}
                                 value={userId}
                                 onChange={(e) => setUserId(e.target.value)}
+                                onReset={() => setUserId('')}
                             />
                         </li>
                         <li>
@@ -41,6 +42,7 @@ const Login = () => {
                                 placeholder={"비밀번호"}
                                 value={userPw}
                                 onChange={(e) => setUserPw(e.target.value)}
+                                onReset={() => setUserPw('')}
                             />
                         </li>
                     </S.LoginList>

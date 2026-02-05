@@ -2,13 +2,15 @@ import React from 'react';
 import S from "./BasicRadioBox.style";
 
 interface BasicRadioBoxProps {
-    id?: string,
+    id: string,
     name?: string,
+    value: string,
     labelTxt?: string,
-    onChange?: () => void,
-    disabled?: boolean
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    disabled?: boolean,
+    checked?: boolean
 }
-const BasicRadioBox = ({id,name, labelTxt, onChange, disabled}:BasicRadioBoxProps) => {
+const BasicRadioBox = ({id, name, value, checked, labelTxt, onChange, disabled}:BasicRadioBoxProps) => {
     return (
         <>
             <S.RadioboxWrap>
@@ -16,8 +18,10 @@ const BasicRadioBox = ({id,name, labelTxt, onChange, disabled}:BasicRadioBoxProp
                     type="radio"
                     id={id}
                     name={name}
+                    value={value}
                     onChange={onChange}
                     disabled={disabled}
+                    checked={checked}
                 />
                 {labelTxt && (
                     <label htmlFor={id}>{labelTxt}</label>

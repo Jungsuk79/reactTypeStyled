@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface TagProps {
     $size: 'small' | 'medium' | 'large';
-    $type: 'primary' | 'secondary' | 'error' | 'gray' | 'line';
+    $type: 'primary' | 'error' | 'gray' | 'line' | 'black';
 }
 
 // 사이즈별 스타일 정의
@@ -29,10 +29,6 @@ const typeStyle = {
         background-color:${({theme}) => theme.PALETTE.primary["main"]};
         color:#fff;
     `,
-    secondary: css`
-        background-color:${({theme}) => theme.PALETTE.secondary["main"]};
-        color:#fff;
-    `,
     error: css`
         background-color:${({theme}) => theme.PALETTE.error};
         color:#fff;
@@ -45,6 +41,11 @@ const typeStyle = {
         background-color:#fff;
         color:${({theme}) => theme.PALETTE.gray[300]};
         border:1px solid ${({theme}) => theme.PALETTE.gray[900]};
+    `,
+    black: css`
+        background-color:${({theme}) => theme.PALETTE.gray[300]};
+        color:${({theme}) => theme.PALETTE.white};
+        border:1px solid ${({theme}) => theme.PALETTE.gray[300]};
     `
 }
 

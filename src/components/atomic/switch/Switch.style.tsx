@@ -28,7 +28,7 @@ const S = {
         height: 26px;
         background-color: ${props => props.$checked
                 ? props.theme.PALETTE.primary["main"]
-                : props.theme.PALETTE.gray[201]};
+                : props.theme.PALETTE.gray[101]};
         border-radius: 15px;
         cursor: pointer;
         transition: background-color 0.3s ease;

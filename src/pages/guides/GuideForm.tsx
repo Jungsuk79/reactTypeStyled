@@ -22,24 +22,67 @@ const GuideForm = () => {
     const [value1, setValue1] = useState("")
     const [value2, setValue2] = useState("")
 
+    // 인풋용 state
+    const [sampleInput, setSampleInput] = useState("")
+    const [sampleInput01, setSampleInput01] = useState("")
+    const [sampleInput02, setSampleInput02] = useState("")
+    const [sampleInput03, setSampleInput03] = useState("")
+    const [sampleInput04, setSampleInput04] = useState("")
+    const [sampleInput05, setSampleInput05] = useState("")
+
+    const [sampleRadio, setSampleRadio] = useState("ra01");
+
+
     return (
         <>
             <S.GuideSpace>
                 <S.GuideBoxTitle>Input</S.GuideBoxTitle>
-                <BasicInput placeholder={"값을 입력해주세요"}/>
-                <BasicInput type={"password"} placeholder={"비밀번호를 입력해주세요"}/><br/>
-                <BasicInput placeholder={"값을 입력해주세요"} fontSize={"20px"}/>
-                <BasicInput placeholder={"값을 입력해주세요"} padding={"20px"}/>
-                <BasicInput placeholder={"값을 입력해주세요"} disabled={true}/>
-                {/*<BasicInput placeholder={"값을 입력해주세요"} success={true}/>*/}
-                <BasicInput placeholder={"값을 입력해주세요"} error={true}/>
-                {/*<BasicInput placeholder={"값을 입력해주세요"} success={true} successTxt={"성공입니다"}/>*/}
-                <BasicInput placeholder={"값을 입력해주세요"} error={true} errorTxt={"실패입니다"}/>
-
-                <BasicInput fullSize={true} reset={true} placeholder={"아이디"}/>
-                <BasicInput fullSize={true} reset={true} placeholder={"비밀번호"}/>
-                <BasicInput fullSize={true} placeholder={"값을 입력해주세요"} description={"입력을 확인해주세요"} labelTxt={"레이블"}/><br/>
-                <BasicInput placeholder={"값을 입력해주세요"} labelTxt={"좌측 레이블"} />
+                <BasicInput
+                    placeholder={"리셋버튼 없는 버전"}
+                    value={sampleInput}
+                    reset={false}
+                    onChange={(e) => setSampleInput(e.target.value)}
+                />
+                <BasicInput
+                    placeholder={"기본 리셋버튼 나오는 버전"}
+                    value={sampleInput01}
+                    onChange={(e) => setSampleInput01(e.target.value)}
+                    onReset={() => setSampleInput01('')}
+                /><br/>
+                <BasicInput
+                    placeholder={"폰트사이즈 변경"}
+                    fontSize={"20px"}
+                    value={sampleInput04}
+                    onChange={(e) => setSampleInput04(e.target.value)}
+                    onReset={() => setSampleInput04('')}
+                /><br />
+                <BasicInput
+                    placeholder={"disabled"}
+                    value={sampleInput05}
+                    onChange={(e) => setSampleInput05(e.target.value)}
+                    onReset={() => setSampleInput05('')}
+                    disabled={true}
+                /><br />
+                <BasicInput placeholder={"값을 입력해주세요"} labelTxt={"인풋 레이블"} />
+                <BasicInput
+                    fullSize={true}
+                    reset={true}
+                    placeholder={"아이디"}
+                    showTxt={true}
+                    value={sampleInput03}
+                    onChange={(e) => setSampleInput03(e.target.value)}
+                    onReset={() => setSampleInput03('')}
+                />
+                <BasicInput
+                    type={"password"}
+                    fullSize={true}
+                    reset={true}
+                    showTxt={true}
+                    placeholder={"비밀번호"}
+                    value={sampleInput02}
+                    onChange={(e) => setSampleInput02(e.target.value)}
+                    onReset={() => setSampleInput02('')}
+                />
             </S.GuideSpace>
             <S.GuideSpace>
                 <S.GuideBoxTitle>Checkbox</S.GuideBoxTitle>
@@ -49,9 +92,9 @@ const GuideForm = () => {
             </S.GuideSpace>
             <S.GuideSpace>
                 <S.GuideBoxTitle>Radiobox</S.GuideBoxTitle>
-                <BasicRadioBox name={"group01"}/>
-                <BasicRadioBox name={"group01"} id={"radio01"} labelTxt={"레이블"}/>
-                <BasicRadioBox name={"group01"} disabled={true} labelTxt={"Disable"}/>
+                <BasicRadioBox id={"ra01"} value={"ra01"} name={"group01"} checked={sampleRadio ==="ra01"} onChange={(e)=>setSampleRadio(e.target.value)} />
+                <BasicRadioBox id={"ra02"} value={"ra02"} name={"group01"} checked={sampleRadio ==="ra02"} onChange={(e)=>setSampleRadio(e.target.value)} labelTxt={"레이블"}/>
+                <BasicRadioBox id={"ra03"} value={"ra03"} name={"group01"} checked={sampleRadio ==="ra03"} onChange={(e)=>setSampleRadio(e.target.value)} disabled={true} labelTxt={"Disable"}/>
             </S.GuideSpace>
             <S.GuideSpace>
                 <S.GuideBoxTitle>Switch</S.GuideBoxTitle>
@@ -73,11 +116,10 @@ const GuideForm = () => {
                 <Tag size={"small"}>테그</Tag>
                 <Tag>테그</Tag>
                 <Tag size={"large"}>테그</Tag>
-                <Tag type={"primary"}>테그</Tag>
-                <Tag type={"secondary"}>테그</Tag>
-                <Tag type={"error"}>테그</Tag>
                 <Tag type={"line"}>테그</Tag>
-                <Tag>테그</Tag>
+                <Tag type={"gray"}>테그</Tag>
+                <Tag type={"primary"}>테그</Tag>
+                <Tag type={"error"}>테그</Tag>
             </S.GuideSpace>
             <S.GuideSpace>
                 <S.GuideBoxTitle>Textarea</S.GuideBoxTitle>

@@ -26,6 +26,7 @@ DropdownWrap : styled.div<DropDownProps>`
 
 DropdownHeader : styled.div<DropDownProps>`
     width: 100%;
+    min-width:120px;
     padding: 10px 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -65,13 +66,13 @@ DropdownList : styled.ul<DropDownProps>`
 DropdownItem : styled.li`
     padding: 10px 15px;
     &:hover {
-        background-color: ${({ theme }) => theme.PALETTE.gray[101]};
-        color: ${({ theme }) => theme.PALETTE.primary["main"]};
+        background-color: ${({ theme }) => theme.PALETTE.gray[900]};
+        color: ${({ theme }) => theme.PALETTE.white};
     }
 `,
 
 ArrowIcon : styled.span<DropDownProps>`
-    margin-left:5px;
+    margin-left:10px;
     font-size: 10px;
     transition: transform 0.2s;
     transform: ${props => props.$isOpen ? 'rotate(180deg)' : 'rotate(0)'};

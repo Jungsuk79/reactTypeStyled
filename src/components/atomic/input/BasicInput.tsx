@@ -8,18 +8,14 @@ export interface BasicInputProps {
     labelTxt?: string;
     radius?: string;
     fontSize?: string;
-    padding?: string;
     disabled?: boolean;
-    description?: string;
-    success?: boolean;
-    error?: boolean;
-    successTxt?: string;
-    errorTxt?: string;
     fullSize?: boolean;
     reset?: boolean;
     showTxt?: boolean;
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onReset?: () => void;
+    inputRightSpace?:string;
 }
 
 const BasicInput = ({
@@ -29,18 +25,15 @@ const BasicInput = ({
     labelTxt,
     radius = '0px', // 기본값 설정
     fontSize = '14px',
-    padding = '16px 0',
     disabled = false,
-    description,
     fullSize=false,
-    success = false,
-    error = false,
-    successTxt,
-    errorTxt,
     reset=true,
     showTxt,
+    value,
     onChange,
-    value
+    onReset,
+    inputRightSpace
+
 }: BasicInputProps) => {
 
     const [inputType, setInputType] = useState(type);
@@ -49,29 +42,20 @@ const BasicInput = ({
         setInputType((prev) => (prev === 'password' ? 'text' : 'password'));
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (onChange) {
-            onChange(e);
-        }
-    };
-    const handleReset = () => {
-        if (onChange) {
-            const event = {
-                target: { value: "" }
-            } as React.ChangeEvent<HTMLInputElement>;
-            onChange(event);
-        }
-    };
+    const hasReset = reset && !!value;
+    const hasShowTxt = reset && !!showTxt;
+    let paddingSize = 0
+    if(hasReset && hasShowTxt){
+        paddingSize = 60;
+    }else if(hasReset || hasShowTxt){
+        paddingSize = 30;
+    }
+
 
     return (
         <S.BasicInputWrap $fullSize={fullSize}>
             <S.BasicInputArea
-                $success={success}
-                $successTxt={successTxt}
-                $error={error}
-                $errorTxt={errorTxt}
                 $radius={radius}
-                $padding={padding}
                 $fontSize={fontSize}
                 $reset={reset}
             >
@@ -81,28 +65,23 @@ const BasicInput = ({
                 <input
                     id={id}
                     type={inputType}
-                    onChange={handleChange}
+                    onChange={onChange}
                     value={value}
                     placeholder={placeholder}
-                    disabled={disabled} />
+                    disabled={disabled}
+                    style={{ paddingRight: `${paddingSize}px` }}
+                />
                 {reset &&(
                     <span className="reset">
-                        <button type="button" onClick={handleReset}>X</button>
+                        {value && (
+                            <button type="button" onClick={onReset}>X</button>
+                        )}
                         {showTxt && type === 'password' && (
                             <button type="button" className={inputType === 'password' ? '보기' : '숨기기'} onClick={handleShowToggle}></button>
                         )}
                     </span>
                 )}
             </S.BasicInputArea>
-            {description && (
-                <div className="under-txt">{description}</div>
-            )}
-            {successTxt  && (
-                <div className="under-txt success">{successTxt}</div>
-            )}
-            {errorTxt && (
-                <div className="under-txt error">{errorTxt}</div>
-            )}
         </S.BasicInputWrap>
     );
 };

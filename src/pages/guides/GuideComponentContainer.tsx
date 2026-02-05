@@ -8,6 +8,7 @@ import BasicTab from "../../components/moleculs/tab/BasicTab";
 import MenuSwiperItem from "../../components/moleculs/swiper/menu/MenuSwiperItem";
 import {sampleSwiperData,menuSwiperData,TABS} from "../../assets/mocks/guide.mock"
 import {useAlertStore} from "../../store/useAlertStore";
+import ProductContainer from "../../components/atomic/product/ProductContainer";
 
 const GuideComponentContainer = () => {
 
@@ -54,16 +55,22 @@ const GuideComponentContainer = () => {
             onConfirm: () => console.log("확인3 버튼 클릭")
         });
     };
+    
+    // 페이지 진입시에 알럿이나 바텀시트 띄우고 싶을때
     useEffect(() => {
         const timer = setTimeout(() => {
-            openSheet("service");
-            alert3();
+            // openSheet("service");
+            // alert3();
 
         }, 100); // 화면에 계속 떠있는것처럼 보이지 않기위해 딜레이 0.1초
     }, []);
 
     return (
         <>
+            <S.GuideSubTitle>Product Guide</S.GuideSubTitle>
+            <div>
+                <ProductContainer />
+            </div>
             <S.GuideSubTitle>Swiper Guide</S.GuideSubTitle>
             <div>
                 <CommonSwiper
