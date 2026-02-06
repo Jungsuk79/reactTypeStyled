@@ -254,7 +254,13 @@ export const S = {
                 }
             }
         }
+    `,
+    BoxListWrap : styled.div`
+        display:flex;
+        flex-wrap: wrap;
+        gap:5px;
     `
+
 };
 
 export default S;

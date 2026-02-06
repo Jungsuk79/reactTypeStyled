@@ -6,9 +6,13 @@ import CommonSwiper from "../../components/moleculs/swiper/CommonSwiper";
 import SwiperItem from "../../components/moleculs/swiper/layout/SwiperItem";
 import BasicTab from "../../components/moleculs/tab/BasicTab";
 import MenuSwiperItem from "../../components/moleculs/swiper/menu/MenuSwiperItem";
-import {sampleSwiperData,menuSwiperData,TABS} from "../../assets/mocks/guide.mock"
+import {sampleSwiperData, menuSwiperData, TABS} from "../../assets/mocks/guide.mock"
 import {useAlertStore} from "../../store/useAlertStore";
-import ProductContainer from "../../components/atomic/product/ProductContainer";
+import ProductItem from "../../components/atomic/product/ProductItem";
+import sampleProductImg01 from "../../assets/images/product/sampleProductImg01.jpg";
+import sampleProductImg02 from "../../assets/images/product/sampleProductImg02.jpg";
+import ProductList from "../../components/moleculs/productList/ProductList";
+import BoxList from "../../components/moleculs/boxList/BoxList";
 
 const GuideComponentContainer = () => {
 
@@ -65,11 +69,38 @@ const GuideComponentContainer = () => {
         }, 100); // 화면에 계속 떠있는것처럼 보이지 않기위해 딜레이 0.1초
     }, []);
 
+    const sampleProducts = [
+        { id: 1, url: "/product/detail/1",price:'21,000',alt:'알트값1',src:sampleProductImg01, title:'상품 타이틀'},
+        { id: 2, url: "/product/detail/2",price:'31,000',alt:'알트값2',src:sampleProductImg02, title:'상품2'},
+        { id: 3, url: "/product/detail/3",price:'21,000',alt:'알트값3',src:sampleProductImg01, title:'상품3'},
+        { id: 4, url: "/product/detail/4",price:'21,000',alt:'알트값4',src:sampleProductImg02, title:'상품4'},
+    ];
+
+    const boxDatas = [
+        { id: 1,alt:'알트값1',src:sampleProductImg01},
+        { id: 2,alt:'알트값2',src:sampleProductImg02},
+        { id: 3,alt:'알트값3',src:sampleProductImg01},
+        { id: 4,alt:'알트값4',src:sampleProductImg02},
+        { id: 5,alt:'알트값5',src:sampleProductImg01},
+        { id: 6,alt:'알트값6',src:sampleProductImg02},
+        { id: 7,alt:'알트값7',src:sampleProductImg01},
+        { id: 8,alt:'알트값8',src:sampleProductImg02},
+        { id: 9,alt:'알트값9',src:sampleProductImg01},
+    ];
+
     return (
         <>
+            <S.GuideSubTitle>Box Guide</S.GuideSubTitle>
+            <div>
+                <S.BoxListWrap>
+                    {boxDatas.map((data, index) => (
+                        <BoxList key={index} imgSrc={data.src} altText={data.alt}/>
+                    ))}
+                </S.BoxListWrap>
+            </div>
             <S.GuideSubTitle>Product Guide</S.GuideSubTitle>
             <div>
-                <ProductContainer />
+                <ProductList />
             </div>
             <S.GuideSubTitle>Swiper Guide</S.GuideSubTitle>
             <div>
@@ -138,6 +169,19 @@ const GuideComponentContainer = () => {
                     freeMode={true}   // 화살표도 보통 없음
                     autoplay={false}       // 메뉴가 혼자 돌아가면 안됨
                     height="auto"          // 높이는 내용물에 맞게
+                />
+            </div>
+            <div>
+                <CommonSwiper
+                    items={
+                        sampleProducts.map((product,idx) => (
+                            <ProductItem width={'135px'} productPrice={product.price} altText={product.alt} srcUrl={product.src} isElipsis={true} productUrl={product.url} productTitle={product.title} />
+                        ))
+                    }
+                    slidesPerView={'auto'} // 아이템 너비에 맞춰 자동으로 (강력 추천)
+                    spaceBetween={12}      // 아이템 사이 간격
+                    freeMode={true}   // 화살표도 보통 없음
+                    autoplay={false}
                 />
             </div>
 

@@ -1,48 +1,63 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import checkArrow from '../../../assets/images/common/icCheckArrow.png';
 import checkArrowOn from '../../../assets/images/common/icCheckArrowOn.png';
 import checkDisable from '../../../assets/images/common/icCheckDisable.png';
+import icoWishGray from '../../../assets/images/common/icoWishGray.svg';
+import icoWishRed from '../../../assets/images/common/icoWishRed.svg';
 
+const sizeStyles = {
+    sm: '18px',
+    md: '22px',
+    lg: '28px'
+};
+
+interface CheckBoxProps {
+    $iconStyle?: 'wish' | 'default';
+    $size?: 'sm' | 'md' | 'lg';
+}
 const S = {
 
-    CheckboxWrap: styled.div`
+    CheckboxWrap: styled.div<CheckBoxProps>`
         display: inline-flex;
         align-items: center;
 
         & input {
             appearance: none;
-            -webkit-appearance: none; /* 아이폰(Safari) 필수 */
+            -webkit-appearance: none;
             outline: none;
             cursor: pointer;
-
-            width: 20px;
-            height: 20px;
-            display: inline-block; /* flex보다는 block 계열 추천 */
-
-            /* 1. 기본 상태 이미지 */
-            background-image: url(${checkArrow});
             background-position: center;
             background-repeat: no-repeat;
-            background-size: contain; /* 이미지가 잘리지 않게 설정 */
-            border: none; /* 기본 보더 제거 */
-            margin: 5px;
+            background-size: contain;
+            background-image: url(${checkArrow});
+
+            width: ${({ $size }) => sizeStyles[$size || 'md']};
+            height: ${({ $size }) => sizeStyles[$size || 'md']};
 
             &:checked {
-                position: relative;
-                background: url(${checkArrowOn}) center no-repeat;
-                background-size: 20px auto;
+                background-image: url(${checkArrowOn});
+            }
+            &:disabled {
+                background-image: url(${checkDisable});
             }
 
-            &:disabled {
-                background: url(${checkDisable}) center no-repeat;
-                background-size: 20px auto;
-            }
+            /* wish일 경우 체크박스 스타일 */
+            ${({ $iconStyle }) => $iconStyle === 'wish' && css`
+                background-image: url(${icoWishGray});
+
+                &:checked {
+                    background-image: url(${icoWishRed});
+                    transform: scale(1.1);
+                    transition: transform 0.2s ease-in-out;
+                }
+            `}
         }
 
         & label {
             color: #333;
             font-size: 14px;
-            padding-right: 10px;
+            cursor: pointer;
+            margin-left:5px;
         }
     `
 }

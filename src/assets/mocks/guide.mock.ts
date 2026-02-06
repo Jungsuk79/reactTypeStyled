@@ -265,3 +265,9 @@ export const TABS = [
     { id: 'tab02', label: '탭 타이틀02', content: "222" },
     { id: 'tab03', label: '탭 타이틀03', content: "333" }
 ];
+
+export const sampleProductSwiperData = [
+    { id: 1, src:mainBanner01, text: '할인 이벤트' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' },
+    { id: 2, src:mainBanner02, text: '신상품 출시' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' },
+    { id: 3, src:mainBanner02, text: '신상품 출시' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' }
+];

@@ -1,26 +1,31 @@
 import React from 'react';
-import S from './BasicCheckBox.style'; // 체크박스 전용 스타일이 필요할 수 있습니다.
+import S from './BasicCheckBox.style';
 
 interface BasicCheckBoxProps {
     id?: string,
     labelTxt?: string,
     onChange?: () => void,
-    disabled?: boolean
+    disabled?: boolean,
+    size?: 'sm' | 'md' | 'lg';
+    iconType?: 'wish' | 'default';
+    checked?: boolean;
 }
 
-const BasicCheckbox = ({ id, labelTxt, onChange, disabled }:BasicCheckBoxProps) => {
+const BasicCheckbox = ({ id,iconType = 'default',size='md',checked, labelTxt, onChange, disabled }:BasicCheckBoxProps) => {
     return (
         <>
-            <S.CheckboxWrap>
+            <S.CheckboxWrap $iconStyle={iconType} $size={size}>
                 <input
                     type="checkbox"
                     id={id}
                     onChange={onChange}
                     disabled={disabled}
+                    checked={checked}
                 />
-                {labelTxt && (
+                {iconType !== 'wish' && labelTxt && (
                     <label htmlFor={id}>{labelTxt}</label>
                 )}
+
             </S.CheckboxWrap>
         </>
     );
