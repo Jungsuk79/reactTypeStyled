@@ -6,7 +6,6 @@ import { HeaderProps } from '../../types/layout';
 import CommonHeader from "../../components/moleculs/header/CommonHeader";
 import MainBanner from "../main/components/MainBanner";
 import {useScrollDown} from '../../hooks/useScrollDown'
-import MainHeader from "../../components/moleculs/header/MainHeader";
 import Footer from 'src/components/moleculs/footer/Footer';
 
 const BasicLayout = () => {
@@ -18,7 +17,6 @@ const BasicLayout = () => {
 
     // Top버튼 영역 관련
     const isScrolled = posY > 0;
-    const isTopWhite = !isScrollDown && posY < 100;
 
     // 페이지 최초진입시 상단으로 이동
     const { pathname } = useLocation();
@@ -29,20 +27,15 @@ const BasicLayout = () => {
     return (
         <S.LayoutWrap>
             <S.LayoutContent ref={scrollRef}>
-                {isMain ? (
+                {isMain && (
+                    <MainBanner>메인배너 : 설명</MainBanner>
+                )}
+                {headerProps && (
                     <>
-                        <MainBanner>메인배너 : 설명</MainBanner>
-                        <S.StickHeader $isHidden={isTopWhite}>
-                            <MainHeader />
+                        <S.StickHeader $isHidden={false}>
+                            <CommonHeader headerProps={headerProps} className={isMain ? "main-header": "" } />
                         </S.StickHeader>
                     </>
-                ) : (
-                    // 서브 페이지 공통 헤더
-                    headerProps && (
-                        <S.StickHeader $isHidden={false}>
-                            <CommonHeader headerProps={headerProps} />
-                        </S.StickHeader>
-                    )
                 )}
                 <Outlet context={{ setHeaderProps }} />
                 {isScrolled && (

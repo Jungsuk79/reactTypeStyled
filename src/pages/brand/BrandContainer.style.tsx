@@ -14,11 +14,6 @@ const S = {
             margin-top:8px;
         }
     `,
-    BrandSwiperWrap: styled.div`
-       & .swiper-wrapper {
-           padding:0 10px;
-       } 
-    `,
     BrandSwiperEx: styled.div`
         margin:10px 10px;
         background-color: #f4f4f4;

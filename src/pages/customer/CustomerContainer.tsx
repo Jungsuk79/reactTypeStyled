@@ -1,18 +1,14 @@
-import React, {useEffect} from 'react';
-import {Outlet, useLocation, useOutletContext} from "react-router-dom";
-import {LayoutContextType} from "../../types/layout";
+import React from 'react';
+import {Outlet, useLocation} from "react-router-dom";
 import {faqMenuSwiperData} from "../../assets/mocks/customer.mock";
 import MenuSwiperItem from "../../components/moleculs/swiper/menu/MenuSwiperItem";
 import CommonSwiper from "../../components/moleculs/swiper/CommonSwiper";
 import S from "./CustomerContainer.style"
+import {usePageHeader} from "../../hooks/usePageHeader";
 
 const CustomerContainer = () => {
 
-    const { setHeaderProps } = useOutletContext<LayoutContextType>();
-    useEffect(() => {
-        setHeaderProps({ showBack: true });
-        return () => setHeaderProps(null);
-    }, [setHeaderProps]);
+    usePageHeader({ title: "", showBack: true, isCart: true});
     const { pathname } = useLocation();
 
     return (

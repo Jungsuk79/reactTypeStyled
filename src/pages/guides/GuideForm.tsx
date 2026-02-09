@@ -6,8 +6,8 @@ import BasicRadioBox from "../../components/atomic/radiobox/BasicRadioBox";
 import Switch from "../../components/atomic/switch/Switch";
 import Dropdown from "../../components/atomic/dropbox/DropDown";
 import Pagination from "../../components/atomic/pagination/Pagination";
-import Tag from "../../components/atomic/tag/Tag";
 import BasicTextarea from "../../components/atomic/textarea/BasicTextarea";
+import Badge from "../../components/atomic/badge/Badge";
 
 const GuideForm = () => {
 
@@ -112,14 +112,13 @@ const GuideForm = () => {
                 <Pagination />
             </S.GuideSpace>
             <S.GuideSpace>
-                <S.GuideBoxTitle>Tag</S.GuideBoxTitle>
-                <Tag size={"small"}>테그</Tag>
-                <Tag>테그</Tag>
-                <Tag size={"large"}>테그</Tag>
-                <Tag type={"line"}>테그</Tag>
-                <Tag type={"gray"}>테그</Tag>
-                <Tag type={"primary"}>테그</Tag>
-                <Tag type={"error"}>테그</Tag>
+                <S.GuideBoxTitle>Badge</S.GuideBoxTitle>
+                <Badge label={"신상품"} type={"new"} />
+                <Badge label={"BEST"} type={"best"} />
+                <Badge label={"품절"} />
+                <Badge label={"신상품"} type={"new"} size={"sm"} />
+                <Badge label={"BEST"} type={"best"} />
+                <Badge label={"품절"} size={"lg"} />
             </S.GuideSpace>
             <S.GuideSpace>
                 <S.GuideBoxTitle>Textarea</S.GuideBoxTitle>

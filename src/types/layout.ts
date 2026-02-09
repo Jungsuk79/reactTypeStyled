@@ -4,6 +4,8 @@ export interface HeaderProps {
     isSearch?: boolean;
     isCart?: boolean;
     isHome?: boolean;
+    className?: string;
+    isMain?: boolean;
 }
 
 export interface LayoutContextType {

@@ -5,19 +5,12 @@ import S from './Login.style';
 import BasicInput from "../../components/atomic/input/BasicInput";
 import BasicCheckbox from "../../components/atomic/checkbox/BasicCheckBox";
 import BasicButton from "../../components/atomic/button/BasicButton";
+import {usePageHeader} from "../../hooks/usePageHeader";
 
 const Login = () => {
     const [userId, setUserId] = useState("");
     const [userPw, setUserPw] = useState("");
-
-    const { setHeaderProps } = useOutletContext<LayoutContextType>();
-    useEffect(() => {
-        setHeaderProps({
-            isSearch : false,
-            isCart : false,
-            isHome : true});
-        return () => setHeaderProps(null);
-    }, [setHeaderProps]);
+    usePageHeader({ title: "",isSearch : false, isCart: false,isHome : true});
 
     return (
         <>

@@ -1,6 +1,10 @@
 import { ColorItem, FontStyleItem , FontSizeWeightItem } from '../../types/guide';
 import mainBanner01 from "../images/main/main-banner01.jpg";
 import mainBanner02 from "../images/main/main-banner02.jpg";
+import sampleProductImg01 from "../images/product/sampleProductImg01.jpg";
+import sampleProductImg02 from "../images/product/sampleProductImg02.jpg";
+import sampleBanner02 from "../images/main/sample-banner02.jpg";
+import sampleBanner01 from "../images/main/sample-banner01.jpg";
 
 export const fontStyle: FontStyleItem[] = [
     {
@@ -266,8 +270,34 @@ export const TABS = [
     { id: 'tab03', label: '탭 타이틀03', content: "333" }
 ];
 
-export const sampleProductSwiperData = [
-    { id: 1, src:mainBanner01, text: '할인 이벤트' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' },
-    { id: 2, src:mainBanner02, text: '신상품 출시' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' },
-    { id: 3, src:mainBanner02, text: '신상품 출시' , subText:'내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 내용 텍스트 ' }
+export const sampleProducts = [
+    { id: 1, url: "/product/detail/1",price:'21,000',salePrice:'13,000',alt:'후드집업 베이지',src:sampleProductImg01,badges: [{ label: '신상품', type: 'new' }, { label: '품절', type: 'soldout' }, { label: 'Best', type: 'best' }], title:'후드집업 베이지', content:'후드집업 베이색상 기본 후드티' },
+    { id: 2, url: "/product/detail/2",price:'31,000',salePrice:'13,000',alt:'알트값2',src:sampleProductImg02,badges: [{ label: '신상품', type: 'new' }, { label: '품절', type: 'soldout' }], title:'상품2', content:'상품설명2' },
+    { id: 3, url: "/product/detail/3",price:'21,000',salePrice:'13,000',alt:'알트값3',src:sampleProductImg01,badges: [{ label: '신상품', type: 'new' }, { label: '품절', type: 'soldout' }], title:'상품3', content:'상품설명3' },
+    { id: 4, url: "/product/detail/4",price:'21,000',salePrice:'13,000',alt:'알트값4',src:sampleProductImg02,badges: [{ label: '신상품', type: 'new' }, { label: '품절', type: 'soldout' }], title:'상품4', content:'상품설명4상품설명4상품설명4상품설명4상품설명4상품설명4상품설명4' },
+];
+
+export const sampleBoxDatas = [
+    { id: 1,alt:'알트값1',src:sampleProductImg01},
+    { id: 2,alt:'알트값2',src:sampleProductImg02},
+    { id: 3,alt:'알트값3',src:sampleProductImg01},
+    { id: 4,alt:'알트값4',src:sampleProductImg02},
+    { id: 5,alt:'알트값5',src:sampleProductImg01},
+    { id: 6,alt:'알트값6',src:sampleProductImg02},
+    { id: 7,alt:'알트값7',src:sampleProductImg01},
+    { id: 8,alt:'알트값8',src:sampleProductImg02},
+    { id: 9,alt:'알트값9',src:sampleProductImg01},
+];
+
+export const brandSwiperData = [
+    { id: 1, src:sampleBanner02 },
+    { id: 2, src:sampleBanner01 },
+    { id: 3, src:sampleBanner02}
+];
+
+export const sampleBrandData = [
+    { id: 1, url: "/brandlist/detail/1",price:'21,000',salePrice:'13,000',alt:'후드집업 베이지',src:sampleProductImg01,badges: [{ label: '신상품', type: 'new' }, { label: '품절', type: 'soldout' }, { label: 'Best', type: 'best' }], title:'후드집업 베이지', content:'후드집업 베이색상 기본 후드티' },
+    { id: 2, url: "/brandlist/detail/2",price:'31,000',salePrice:'13,000',alt:'알트값2',src:sampleProductImg02,badges: [{ label: '신상품', type: 'new' }, { label: '품절', type: 'soldout' }], title:'상품2', content:'상품설명2' },
+    { id: 3, url: "/brandlist/detail/3",price:'21,000',salePrice:'13,000',alt:'알트값3',src:sampleProductImg01,badges: [{ label: '신상품', type: 'new' }, { label: '품절', type: 'soldout' }], title:'상품3', content:'상품설명3' },
+    { id: 4, url: "/brandlist/detail/4",price:'21,000',salePrice:'13,000',alt:'알트값4',src:sampleProductImg02,badges: [{ label: '신상품', type: 'new' }, { label: '품절', type: 'soldout' }], title:'상품4', content:'상품설명4상품설명4상품설명4상품설명4상품설명4상품설명4상품설명4' },
 ];

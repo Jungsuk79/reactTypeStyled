@@ -3,6 +3,7 @@ import GuideContainer from "../pages/guides/GuideContainer";
 import BasicLayout from "../pages/layout/BasicLayout";
 import MainContainer from "../pages/main/MainContainer";
 import BrandContainer from "../pages/brand/BrandContainer";
+import BrandList from "../pages/brand/BrandList";
 import FaqContainer from "../pages/customer/faq/FaqContainer";
 import CustomerContainer from "../pages/customer/CustomerContainer";
 import NoticeContainer from "../pages/customer/notice/NoticeContainer";
@@ -10,6 +11,8 @@ import NoticeDetail from "../pages/customer/notice/NoticeDetail";
 import MypageContainer from "src/pages/mypage/MypageContainer";
 import Login from "../pages/login/Login";
 import ProtectedRoute from "./ProtectedRoute";
+import CartContainer from "../pages/cart/CartContainer";
+import BrandDetail from "../pages/brand/BrandDetail";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +26,14 @@ const router = createBrowserRouter([
             {
                 path: "brand",
                 element: <BrandContainer />
+            },
+            {
+                path: "brandlist",
+                element: <BrandList />
+            },
+            {
+                path: "/brandlist/detail/:id",
+                element: <BrandDetail />
             },
             {
                 path:"/customer",
@@ -52,6 +63,10 @@ const router = createBrowserRouter([
                     {
                         path: "/mypage",
                         element: <MypageContainer />
+                    },
+                    {
+                        path: "/cart",
+                        element: <CartContainer />
                     }
                 ]
             },

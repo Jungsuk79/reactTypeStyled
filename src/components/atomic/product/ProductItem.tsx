@@ -2,28 +2,57 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import S from "./ProductItem.style"
 import BasicCheckbox from "../checkbox/BasicCheckBox";
+import Badge from "../badge/Badge";
+
+interface BadgeItem {
+    label: string;
+    type: string;
+}
 
 interface ProductItemProps {
-    productUrl:string;
-    productTitle:string;
-    productContent?:string;
+    isCheckbox?:boolean;
+    isWish?:boolean;
+    badges?: BadgeItem[];
     isElipsis?:boolean;
+    productUrl:string;
     srcUrl:string;
     altText?:string;
     productSalePrice?:string;
-    productPrice:string;
+    productPrice?:string;
+    productTitle:string;
+    productContent?:string;
     width?:string;
 }
-const ProductItem = ({width,productSalePrice,productPrice,srcUrl,altText,productUrl,productTitle,productContent,isElipsis}:ProductItemProps) => {
+const ProductItem = ({
+     isCheckbox=true,
+     isWish=true,
+     badges,
+     isElipsis,
+     productUrl,
+     srcUrl,
+     altText,
+     productSalePrice,
+     productPrice,
+     productTitle,
+     productContent,
+     width
+}:ProductItemProps) => {
     return (
         <S.ProductItemList $width={width}>
             <S.ProductItemWrap>
                 <S.ProductItemArea>
                     <S.ProductImgWrap>
+                        {isCheckbox &&(
+                            <S.CheckWrap>
+                                <BasicCheckbox />
+                            </S.CheckWrap>
+                        )}
                         <S.ProductImg src={srcUrl} alt={altText} />
-                        <S.WishWrap>
-                            <BasicCheckbox iconType={"wish"} />
-                        </S.WishWrap>
+                        {isWish &&(
+                            <S.WishWrap>
+                                <BasicCheckbox iconType={"wish"} />
+                            </S.WishWrap>
+                        )}
                     </S.ProductImgWrap>
                 </S.ProductItemArea>
                 <Link to={productUrl}>
@@ -32,10 +61,23 @@ const ProductItem = ({width,productSalePrice,productPrice,srcUrl,altText,product
                         {productContent &&(
                             <S.ProductEx $isElipsis={isElipsis}>{productContent}</S.ProductEx>
                         )}
-                        <S.ProductPrice>
-                            {productSalePrice}
-                            <span>{productPrice}</span>
-                        </S.ProductPrice>
+                        {productPrice &&(
+                            <S.ProductPrice>
+                                {productSalePrice}
+                                <span>{productPrice}</span>
+                            </S.ProductPrice>
+                        )}
+                        {badges && badges.length > 0 && (
+                            <S.BadgeWrap>
+                                {badges.map((badge, idx) => (
+                                    <Badge
+                                        key={idx}
+                                        label={badge.label}
+                                        type={badge.type}
+                                    />
+                                ))}
+                            </S.BadgeWrap>
+                        )}
                     </S.ProductInfoWrap>
                 </Link>
             </S.ProductItemWrap>

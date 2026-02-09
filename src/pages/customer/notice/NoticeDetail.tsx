@@ -3,6 +3,7 @@ import {Link, useOutletContext,useParams} from "react-router-dom";
 import {LayoutContextType} from "../../../types/layout";
 import S from './NoticeDetail.style'
 import BasicButton from 'src/components/atomic/button/BasicButton';
+import {usePageHeader} from "../../../hooks/usePageHeader";
 interface NoticeData {
     id: number;
     title: string;
@@ -11,13 +12,10 @@ interface NoticeData {
     createDate: string;
 }
 const NoticeDetail = () => {
-    const { setHeaderProps } = useOutletContext<LayoutContextType>();
+    usePageHeader({ title: "", showBack: true, isCart: true});
+
     const { id } = useParams<{ id: string }>(); // URL에서 id 추출
     const [detail, setDetail] = useState<NoticeData | null>(null);
-    useEffect(() => {
-        setHeaderProps({ showBack: true });
-        return () => setHeaderProps(null);
-    }, [setHeaderProps]);
 
     useEffect(() => {
         const noticeData = async() => {

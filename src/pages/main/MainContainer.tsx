@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import { useOutletContext } from 'react-router-dom';
+import React, {useState} from 'react';
 import BottomSheet from "../../components/moleculs/bottomsheet/BottomSheet";
 import S from './MainContainer.style'
 import CommonSwiper from "../../components/moleculs/swiper/CommonSwiper";
@@ -7,20 +6,10 @@ import {mainBannerData,menuSwiperData,mainSwiperData} from "../../assets/mocks/m
 import {useAlertStore} from "../../store/useAlertStore";
 import SwiperItem from "../../components/moleculs/swiper/layout/SwiperItem";
 import MenuSwiperItem from "../../components/moleculs/swiper/menu/MenuSwiperItem";
-
-interface ContextType {
-    setHeaderProps: (props: { title: string; showBack: boolean } | null) => void;
-}
+import {usePageHeader} from "../../hooks/usePageHeader";
 
 const MainContainer = () => {
-    const { setHeaderProps } = useOutletContext<ContextType>();
-    useEffect(() => {
-        // 페이지가 마운트될 때 헤더 정보 설정
-        setHeaderProps({ title: "메인로고", showBack: false });
-
-        setActiveSheet("active"); // 바텀시트바로열기
-        return () => setHeaderProps(null);
-    }, [setHeaderProps]);
+    usePageHeader({showBack: false, isMain: true});
 
     // BottomSheet
     const [activeSheet, setActiveSheet] = useState<string | null>(null);

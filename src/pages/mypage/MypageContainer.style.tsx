@@ -13,5 +13,21 @@ const S = {
             margin-top:8px;
         }
     `,
+    SubTitle :  styled.div`
+        font-size: ${({ theme }) => theme.FONT_SIZE.h6};
+        font-weight:600;
+    `,
+    CartContainer : styled.div`
+        padding:0 10px;
+    `,
+    Nodata : styled.div`
+        display:flex;
+        flex:1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        max-height:50%;
+    `
 }
 export default S;

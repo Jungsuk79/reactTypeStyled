@@ -3,6 +3,7 @@ import styled, {css} from 'styled-components';
 interface ProductProps {
     $isElipsis?: boolean;
     $width?:string;
+    $type?: string;
 }
 const S = {
     ProductItemList: styled.li<ProductProps>`
@@ -24,6 +25,11 @@ const S = {
         width:100%;
         height:100%;
         object-fit: contain;
+    `,
+    CheckWrap:styled.div`
+        position:absolute;
+        left:10px;
+        top:10px;
     `,
     WishWrap:styled.div`
         position:absolute;
@@ -67,6 +73,9 @@ const S = {
             margin-left:5px;
             font-weight:400;
         }
+    `,
+    BadgeWrap:styled.div`
+        margin-top:10px;
     `,
 };
 

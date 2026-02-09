@@ -20,6 +20,9 @@ StickHeader: styled.div<BasicLayoutProps>`
     /* 중요: top 0일 때는 보이고, -100%일 때는 탭 메뉴에게 자리를 양보하며 숨겨짐 */
     top: ${({ $isHidden }) => ($isHidden ? '-100px' : '0px')};
     z-index: 100;
+    &.main-header > div {
+        background-color: transparent;
+    }
 `,
 
 LayoutContent : styled.div`
