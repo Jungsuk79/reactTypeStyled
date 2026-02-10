@@ -10,12 +10,11 @@ export interface BasicInputProps {
     fontSize?: string;
     disabled?: boolean;
     fullSize?: boolean;
-    reset?: boolean;
     showTxt?: boolean;
-    value?: string;
+    name: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onReset?: () => void;
-    inputRightSpace?:string;
+    value?: string;
+
 }
 
 const BasicInput = ({
@@ -27,12 +26,10 @@ const BasicInput = ({
     fontSize = '14px',
     disabled = false,
     fullSize=false,
-    reset=true,
     showTxt,
-    value,
+    name,
     onChange,
-    onReset,
-    inputRightSpace
+    value
 
 }: BasicInputProps) => {
 
@@ -42,22 +39,12 @@ const BasicInput = ({
         setInputType((prev) => (prev === 'password' ? 'text' : 'password'));
     };
 
-    const hasReset = reset && !!value;
-    const hasShowTxt = reset && !!showTxt;
-    let paddingSize = 0
-    if(hasReset && hasShowTxt){
-        paddingSize = 60;
-    }else if(hasReset || hasShowTxt){
-        paddingSize = 30;
-    }
-
 
     return (
         <S.BasicInputWrap $fullSize={fullSize}>
             <S.BasicInputArea
                 $radius={radius}
                 $fontSize={fontSize}
-                $reset={reset}
             >
                 {labelTxt && (
                     <label htmlFor={id}>{labelTxt}</label>
@@ -65,22 +52,18 @@ const BasicInput = ({
                 <input
                     id={id}
                     type={inputType}
-                    onChange={onChange}
-                    value={value}
                     placeholder={placeholder}
                     disabled={disabled}
-                    style={{ paddingRight: `${paddingSize}px` }}
+                    onChange={onChange}
+                    name={name}
+                    value={value}
                 />
-                {reset &&(
-                    <span className="reset">
-                        {value && (
-                            <button type="button" onClick={onReset}>X</button>
-                        )}
-                        {showTxt && type === 'password' && (
-                            <button type="button" className={inputType === 'password' ? '보기' : '숨기기'} onClick={handleShowToggle}></button>
-                        )}
-                    </span>
-                )}
+                <span className="reset">
+                        <button type="button">X</button>
+                    {showTxt && type === 'password' && (
+                        <button type="button" className={inputType === 'password' ? '보기' : '숨기기'} onClick={handleShowToggle}></button>
+                    )}
+                </span>
             </S.BasicInputArea>
         </S.BasicInputWrap>
     );

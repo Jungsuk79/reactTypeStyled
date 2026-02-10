@@ -29,6 +29,7 @@ const GuideForm = () => {
     const [sampleInput03, setSampleInput03] = useState("")
     const [sampleInput04, setSampleInput04] = useState("")
     const [sampleInput05, setSampleInput05] = useState("")
+    const [sampleInput06, setSampleInput06] = useState("")
 
     const [sampleRadio, setSampleRadio] = useState("ra01");
 
@@ -39,49 +40,53 @@ const GuideForm = () => {
                 <S.GuideBoxTitle>Input</S.GuideBoxTitle>
                 <BasicInput
                     placeholder={"리셋버튼 없는 버전"}
+                    name={"sampleInput"}
                     value={sampleInput}
-                    reset={false}
                     onChange={(e) => setSampleInput(e.target.value)}
                 />
                 <BasicInput
                     placeholder={"기본 리셋버튼 나오는 버전"}
+                    name={"sampleInput01"}
                     value={sampleInput01}
                     onChange={(e) => setSampleInput01(e.target.value)}
-                    onReset={() => setSampleInput01('')}
                 /><br/>
                 <BasicInput
                     placeholder={"폰트사이즈 변경"}
                     fontSize={"20px"}
-                    value={sampleInput04}
-                    onChange={(e) => setSampleInput04(e.target.value)}
-                    onReset={() => setSampleInput04('')}
+                    name={"sampleInput02"}
+                    value={sampleInput02}
+                    onChange={(e) => setSampleInput02(e.target.value)}
                 /><br />
                 <BasicInput
                     placeholder={"disabled"}
-                    value={sampleInput05}
-                    onChange={(e) => setSampleInput05(e.target.value)}
-                    onReset={() => setSampleInput05('')}
-                    disabled={true}
-                /><br />
-                <BasicInput placeholder={"값을 입력해주세요"} labelTxt={"인풋 레이블"} />
-                <BasicInput
-                    fullSize={true}
-                    reset={true}
-                    placeholder={"아이디"}
-                    showTxt={true}
+                    name={"sampleInput03"}
                     value={sampleInput03}
                     onChange={(e) => setSampleInput03(e.target.value)}
-                    onReset={() => setSampleInput03('')}
+                    disabled={true}
+                /><br />
+                <BasicInput
+                    name={"sampleInput04"}
+                    value={sampleInput04}
+                    placeholder={"값을 입력해주세요"}
+                    labelTxt={"인풋 레이블"}
+                    onChange={(e) => setSampleInput04(e.target.value)}
+                />
+                <BasicInput
+                    fullSize={true}
+                    placeholder={"아이디"}
+                    showTxt={true}
+                    name={"sampleInput05"}
+                    value={sampleInput05}
+                    onChange={(e) => setSampleInput05(e.target.value)}
                 />
                 <BasicInput
                     type={"password"}
                     fullSize={true}
-                    reset={true}
                     showTxt={true}
                     placeholder={"비밀번호"}
-                    value={sampleInput02}
-                    onChange={(e) => setSampleInput02(e.target.value)}
-                    onReset={() => setSampleInput02('')}
+                    name={"sampleInput06"}
+                    value={sampleInput06}
+                    onChange={(e) => setSampleInput06(e.target.value)}
                 />
             </S.GuideSpace>
             <S.GuideSpace>

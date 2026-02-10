@@ -26,7 +26,7 @@ export const S = {
             top:0;
             left:0;
             font-size: ${({ $fontSize }) => 
-                $fontSize !== undefined ? (typeof $fontSize === 'number' ? `${$fontSize}px` : $fontSize) : `14px`};
+                    $fontSize !== undefined ? (typeof $fontSize === 'number' ? `${$fontSize}px` : $fontSize) : `14px`};
             & + input {
                 padding-top:30px;
             }

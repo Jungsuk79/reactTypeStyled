@@ -22,9 +22,9 @@ const Login = () => {
                             <BasicInput
                                 fullSize={true}
                                 placeholder={"아이디"}
+                                name={"userId"}
                                 value={userId}
                                 onChange={(e) => setUserId(e.target.value)}
-                                onReset={() => setUserId('')}
                             />
                         </li>
                         <li>
@@ -33,9 +33,9 @@ const Login = () => {
                                 type={"password"}
                                 fullSize={true}
                                 placeholder={"비밀번호"}
+                                name={"userPw"}
                                 value={userPw}
                                 onChange={(e) => setUserPw(e.target.value)}
-                                onReset={() => setUserPw('')}
                             />
                         </li>
                     </S.LoginList>
@@ -48,7 +48,7 @@ const Login = () => {
                     <S.MemberButtonWrap>
                         <Link to={"/"}>아이디 찾기</Link>
                         <Link to={"/"}>비밀번호 찾기</Link>
-                        <Link to={"/"}>회원가입</Link>
+                        <Link to={"/member"}>회원가입</Link>
                     </S.MemberButtonWrap>
                     <S.SnsButtonWrap>
                         <BasicButton type={"button"} $variant={"line"} $size={"sm"} $shape={"round"} $width={"100%"}><S.kakaoIcon></S.kakaoIcon>카카오로 로그인</BasicButton>

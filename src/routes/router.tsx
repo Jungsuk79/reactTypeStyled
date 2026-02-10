@@ -13,6 +13,7 @@ import Login from "../pages/login/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import CartContainer from "../pages/cart/CartContainer";
 import BrandDetail from "../pages/brand/BrandDetail";
+import MemberContainer from "src/pages/member/MemberContainer";
 
 const router = createBrowserRouter([
     {
@@ -73,7 +74,12 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login />
-            }
+            },
+            {
+                path: "/member",
+                element: <MemberContainer />
+            },
+
         ]
     },
     {
