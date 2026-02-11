@@ -61,9 +61,8 @@ export const S = {
             gap: 4px;
             align-items: center;
             position:absolute;
-            top:50%;
             right:5px;
-            transform: translateY(-50%);
+            bottom:15px;
 
             button {
                 width: 20px;

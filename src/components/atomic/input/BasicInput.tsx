@@ -14,6 +14,8 @@ export interface BasicInputProps {
     name: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value?: string;
+    onReset?:()=>void;
+    inputRef?: (el: HTMLInputElement | null) => void;
 
 }
 
@@ -29,7 +31,9 @@ const BasicInput = ({
     showTxt,
     name,
     onChange,
-    value
+    value,
+    onReset,
+    inputRef
 
 }: BasicInputProps) => {
 
@@ -39,6 +43,14 @@ const BasicInput = ({
         setInputType((prev) => (prev === 'password' ? 'text' : 'password'));
     };
 
+    const hasReset = !!onReset && !!value;
+    const hasShowTxt = !!showTxt && type === 'password';
+    let paddingSize = 0;
+    if (hasReset && hasShowTxt) {
+        paddingSize = 60;
+    } else if (hasReset || hasShowTxt) {
+        paddingSize = 30;
+    }
 
     return (
         <S.BasicInputWrap $fullSize={fullSize}>
@@ -50,6 +62,7 @@ const BasicInput = ({
                     <label htmlFor={id}>{labelTxt}</label>
                 )}
                 <input
+                    ref={inputRef}
                     id={id}
                     type={inputType}
                     placeholder={placeholder}
@@ -57,9 +70,12 @@ const BasicInput = ({
                     onChange={onChange}
                     name={name}
                     value={value}
+                    style={{ paddingRight: `${paddingSize}px` }}
                 />
                 <span className="reset">
-                        <button type="button">X</button>
+                    {value !== ""  &&(
+                        <button type="button" onClick={onReset}>X</button>
+                    )}
                     {showTxt && type === 'password' && (
                         <button type="button" className={inputType === 'password' ? '보기' : '숨기기'} onClick={handleShowToggle}></button>
                     )}
