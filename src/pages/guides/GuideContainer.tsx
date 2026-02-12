@@ -5,13 +5,15 @@ import {Link} from "react-router-dom";
 import GuideStyleContainer from './GuideStyleContainer';
 import GuideUiContainer from './GuideUiContainer';
 import GuideComponentContainer from "./GuideComponentContainer";
+import GuideUiPage from './GuideUiPage';
 
 const GuideContainer = () => {
     const [activeTab, setActiveTab] = useState('tab01');
     const TABS = [
         { id: 'tab01', label: '스타일 가이드', content: <GuideStyleContainer /> },
         { id: 'tab02', label: 'UI 가이드', content: <GuideUiContainer /> },
-        { id: 'tab03', label: '컴포넌트 가이드', content: <GuideComponentContainer /> }
+        { id: 'tab03', label: '컴포넌트 가이드', content: <GuideComponentContainer /> },
+        { id: 'tab04', label: '페이지 가이드', content: <GuideUiPage /> }
     ];
 
     return (

@@ -10,4 +10,6 @@ export interface HeaderProps {
 
 export interface LayoutContextType {
     setHeaderProps: React.Dispatch<React.SetStateAction<HeaderProps | null>>;
+    setFooterVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    setMenuVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }

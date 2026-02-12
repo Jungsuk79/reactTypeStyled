@@ -16,7 +16,7 @@ export interface BasicInputProps {
     value?: string;
     onReset?:()=>void;
     inputRef?: (el: HTMLInputElement | null) => void;
-
+    required?:boolean
 }
 
 const BasicInput = ({
@@ -33,7 +33,8 @@ const BasicInput = ({
     onChange,
     value,
     onReset,
-    inputRef
+    inputRef,
+    required
 
 }: BasicInputProps) => {
 
@@ -59,7 +60,7 @@ const BasicInput = ({
                 $fontSize={fontSize}
             >
                 {labelTxt && (
-                    <label htmlFor={id}>{labelTxt}</label>
+                    <label htmlFor={id}>{labelTxt} {required && (<span>*</span>)}</label>
                 )}
                 <input
                     ref={inputRef}

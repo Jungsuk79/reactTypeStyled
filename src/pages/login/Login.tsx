@@ -12,6 +12,16 @@ const Login = () => {
     const [userPw, setUserPw] = useState("");
     usePageHeader({ title: "",isSearch : false, isCart: false,isHome : true});
 
+    const { setFooterVisible,setMenuVisible } = useOutletContext<LayoutContextType>();
+    useEffect(() => {
+        setFooterVisible(false);
+        setMenuVisible(false);
+        return () => {
+            setFooterVisible(true);
+            setMenuVisible(true);
+        };
+    }, [setFooterVisible, setMenuVisible]);
+
     return (
         <>
             <S.LoginWrap>

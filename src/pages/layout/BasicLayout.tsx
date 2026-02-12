@@ -8,7 +8,14 @@ import MainBanner from "../main/components/MainBanner";
 import {useScrollDown} from '../../hooks/useScrollDown'
 import Footer from 'src/components/moleculs/footer/Footer';
 
-const BasicLayout = () => {
+interface BasicLayoutProps {
+    isFooter?:boolean;
+    isCommonMenu?:boolean;
+}
+const BasicLayout = ({isFooter=true,isCommonMenu=true}:BasicLayoutProps) => {
+    const [isFooterVisible, setFooterVisible] = useState(isFooter);
+    const [isMenuVisible, setMenuVisible] = useState(isCommonMenu);
+    
     const scrollRef = useRef<HTMLDivElement>(null);
     const { isDown: isScrollDown, posY } = useScrollDown(scrollRef);
     const [headerProps, setHeaderProps] = useState<HeaderProps | null>(null);
@@ -22,7 +29,7 @@ const BasicLayout = () => {
     const { pathname } = useLocation();
     useEffect(() => {
         scrollRef.current?.scrollTo(0, 0);
-    }, [pathname]);
+    }, [location.pathname, isFooter, isCommonMenu]);
 
     return (
         <S.LayoutWrap>
@@ -37,7 +44,7 @@ const BasicLayout = () => {
                         </S.StickHeader>
                     </>
                 )}
-                <Outlet context={{ setHeaderProps }} />
+                <Outlet context={{ setHeaderProps, setFooterVisible,setMenuVisible }} />
                 {isScrolled && (
                     <S.FolatingWrap $isHidden={isScrollDown}>
                         <S.FolatingContent>
@@ -53,9 +60,11 @@ const BasicLayout = () => {
                         </S.FolatingContent>
                     </S.FolatingWrap>
                 )}
-                <Footer />
+                {isFooterVisible && <Footer />}
             </S.LayoutContent>
-            <CommonMenu isHidden={isScrollDown} />
+            {isMenuVisible && (
+                <CommonMenu isHidden={isScrollDown} />
+            )}
         </S.LayoutWrap>
     );
 };
